@@ -1,0 +1,54 @@
+git remote -v
+git remote rm origin
+
+git remote add origin git@github.com:UsabilitySpace/bookocean-bot.git
+git remote add origin git@github.com:UsabilitySpace/bookocean-bot-config.git
+git remote add origin git@github.com:UsabilitySpace/bookocean-bot-deploy.git
+git remote add origin git@github.com:UsabilitySpace/bookocean-bot-menu.git
+
+git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git ; git remote -v
+git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-config.git ; git remote -v
+git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-menu.git ; git remote -v
+
+git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot.git ; git remote -v
+git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot-config.git ; git remote -v
+git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot-enum.git ; git remote -v
+
+git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot.git ; git remote -v
+git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot-config.git ; git remote -v
+git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot-enum.git ; git remote -v
+
+git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot.git ; git remote -v
+git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot-config.git ; git remote -v
+git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot-enum.git ; git remote -v
+
+function scpftp1(){
+    scp -r root@194.67.87.198:/var/www/www-root/data/nodejs/server/$1/$2/ftp ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/ftp/$2
+}
+
+function scpftp1a(){
+    scpftp1 bookocean-bot bookocean-bot-developer-hosting-regru
+    scpftp1 bookocean-bot bookocean-bot-user-hosting-regru
+    scpftp1 bookocean-bot bookocean-bot-production-hosting-regru
+    scpftp1 bookocean-bot bookocean-bot-user-hosting-regru-0000-1802660270
+    scpftp1 client-bot client-bot-user-hosting-regru
+    scpftp1 sinar-bot sinar-bot-telegramsites-hosting-regru
+}
+
+function scpftp2(){
+    scp root@194.67.87.198:/var/www/www-root/data/nodejs/server/$1/$2/project/__config_bot.js ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/ftp/__config_bot/$2.js
+}
+
+function scpftp2a(){
+    scpftp2 bookocean-bot bookocean-bot-developer-hosting-regru
+    scpftp2 bookocean-bot bookocean-bot-user-hosting-regru
+    scpftp2 bookocean-bot bookocean-bot-production-hosting-regru
+    scpftp2 bookocean-bot bookocean-bot-user-hosting-regru-0000-1802660270
+    scpftp2 client-bot client-bot-user-hosting-regru
+    scpftp2 sinar-bot sinar-bot-telegramsites-hosting-regru
+
+}
