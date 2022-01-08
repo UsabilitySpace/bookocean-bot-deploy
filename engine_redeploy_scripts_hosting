@@ -17,6 +17,8 @@ ALIAS PS1="$ps1"
 # COMMON : BASH
 # ----------------------------------------------------------------------------
 
+ALIAS ll="ll --all"
+
 ALIAS l="pm2 list"
 
 ALIAS n="mcedit"

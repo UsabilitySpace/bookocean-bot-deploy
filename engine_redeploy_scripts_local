@@ -17,9 +17,9 @@ ALIAS PS1="$ps1"
 # OTHER
 # ----------------------------------------------------------------------------
 
-ALIAS @="cd ~/desktop/"
+ALIAS ll="ls -l --all"
 
-ALIAS ll="ls -l "
+ALIAS @="cd ~/desktop/"
 
 ALIAS connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
 
