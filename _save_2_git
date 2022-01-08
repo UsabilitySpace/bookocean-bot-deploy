@@ -31,7 +31,7 @@ git push -f
 # value added in all public files
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/@bash_inc_deploy
+source $SCRIPT_DIR/bash_inc_deploy_scripts
 
 # ─────────────────────────────────
 
