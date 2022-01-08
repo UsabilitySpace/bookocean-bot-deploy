@@ -8,11 +8,11 @@ filename_root="engine_redeploy_scripts_"
 
 if (( $(is_hosting) == "1" ))
 then
-  echo "Including hosting.."
+  echo "Including hosting..."
   filename_include_suffix="hosting"
   target_dir=~/
 else
-  echo "Including local.."
+  echo "Including local..."
   filename_include_suffix="local"
   target_dir=~/Desktop/__System/Shell/
 fi
