@@ -1,4 +1,6 @@
 
+# works only from .gitted folder
+
 # to be called on LOCAL only
 
 # must include '.check_server' beforehand
@@ -10,7 +12,7 @@ if [ $check_server_true = "1" ] ; then return; fi
 
 # do main job:
 
-cd ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/bot
+# cd ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/bot
 echo $PWD
 git add . -f
 commit_message="save $(date)"
@@ -18,7 +20,7 @@ commit_message=${1:-$commit_message}
 git commit -m "$commit_message"
 # git push -f
 
-git push https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git -f
+# git push https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git -f
 
 # ─────────────────────────────────
 
