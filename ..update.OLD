@@ -21,22 +21,22 @@ cd $dir_root
 # do main job:
 
 rm -r $dir_rooted_developer
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_developer
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_developer
 
 rm -r $dir_rooted_production
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_production
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_production
 
 rm -r $dir_rooted_user
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_user
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_user
 
 rm -r $dir_rooted_vip_0000
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_vip_0000
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_vip_0000
 
 rm -r $dir_rooted_client
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_client
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_client
 
 rm -r $dir_rooted_sinar
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_sinar
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_sinar
 
 chown -R www-root:www-root $dir_root
 

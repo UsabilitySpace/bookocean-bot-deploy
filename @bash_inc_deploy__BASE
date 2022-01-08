@@ -35,4 +35,4 @@ alias myip="ifconfig |grep inet\ "
 # GIT
 # ----------------------------------------------------------------------------
 
-origin="https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git"
+origin="https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git"
