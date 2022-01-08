@@ -1,0 +1,15 @@
+# k = killall
+
+# main job
+
+killall -9 node;
+
+# ─────────────────────────────────
+
+# value added in all public files
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy
+
+# ─────────────────────────────────
+

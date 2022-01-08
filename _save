@@ -1,0 +1,34 @@
+
+# to be called on LOCAL only
+
+# must include '.check_server' beforehand
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/.check_server
+
+if [ $check_server_true = "1" ] ; then return; fi
+
+# do main job:
+
+cd ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/project
+echo $PWD
+git add . -f
+commit_message="save $(date)"
+commit_message=${1:-$commit_message}
+git commit -m "$commit_message"
+# git push -f
+
+git push https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git -f
+
+# ─────────────────────────────────
+
+# value added in all public files
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy
+
+# ─────────────────────────────────
+
+# must do nothing else ■
+
+ 

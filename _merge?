@@ -1,0 +1,36 @@
+
+# to be called on LOCAL only
+
+# must include '.check_server' beforehand
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/.check_server
+
+if [ $check_server_true = "1" ] ; then return; fi
+
+# do main job:
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/_save
+
+git checkout developer
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/_save
+
+git checkout master
+git merge developer
+git checkout developer
+
+# ─────────────────────────────────
+
+# value added in all public files
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy
+
+# ─────────────────────────────────
+
+# must do nothing else ■
+
+ 

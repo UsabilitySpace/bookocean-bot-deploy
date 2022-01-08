@@ -1,0 +1,35 @@
+
+# to be called on LOCAL only
+
+# must include '.check_server' beforehand
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/.check_server ; if [ $check_server_true = "1" ] ; then return; fi
+
+# do main job:
+
+date=$(date)
+date=${date// /_}
+date=${date//\(/_}
+date=${date//\)/_}
+
+project_root=~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/
+
+cd $project_root
+cd ..
+
+echo == Starting to zip the project...
+zip -r bookocean-bot-developer-local-${date}.zip bookocean-bot-developer-local/ -q
+echo == Project successfully zipped
+
+cd $project_root
+
+# ─────────────────────────────────
+
+# value added in all public files
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy
+
+# ─────────────────────────────────
+
+# must do nothing else ■

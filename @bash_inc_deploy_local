@@ -1,0 +1,26 @@
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy__BASE
+
+ # ----------------------------------------------------------------------------
+# PS1
+# ----------------------------------------------------------------------------
+
+ps1='███████████ \D{%Y-%m-%d} • \D{%a} • \D{%T} █ \h █ \u █ \w ▶ '
+
+export PS1="$ps1"
+
+ALIAS ps1="$ps1"
+ALIAS PS1="$ps1"
+
+# ----------------------------------------------------------------------------
+# OTHER
+# ----------------------------------------------------------------------------
+
+
+ALIAS ll="ls -l "
+
+ALIAS connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
+
+ALIAS save=". deploy/_save"
+ALIAS merge=". deploy/_merge"

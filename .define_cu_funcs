@@ -1,0 +1,48 @@
+
+# ─────────────────────────────────
+# FUNCTIONS
+# ─────────────────────────────────
+
+function string_contains_substring() {
+    string=$1
+    substring=$2
+    if [[ $string == *"$substring"* ]]
+    then
+        echo 1;
+    else
+        echo 0;
+    fi
+}
+
+function is_hosting() {
+    if (( $(string_contains_substring "$PWD" "hosting") ))
+    then
+        echo 1;
+    else
+        echo 0;
+    fi
+}
+
+function is_local() {
+    if (( $(string_contains_substring "$PWD" "local") ))
+    then
+        echo 1;
+    else
+        echo 0;
+    fi
+}
+
+function produce_command_by_template() {
+    command_template=$1
+    commands_max_inclusive=$2
+    for ((i=0; i < commands_max_inclusive + 1; i++))
+    {
+        a="${command_template/%n/"$i"}"
+        eval "$a"
+    }
+}
+
+function script_dir() {
+  SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+  echo $SCRIPT_DIR
+}

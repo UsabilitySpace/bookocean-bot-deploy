@@ -1,0 +1,97 @@
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy__BASE
+
+# ----------------------------------------------------------------------------
+# PS1
+# ----------------------------------------------------------------------------
+
+ps1='███████████ \D{%Y-%m-%d} • \D{%a} • \D{%T} ███ \h ███ \u ███ \w ▶ '
+
+export PS1="$ps1"
+
+ALIAS ps1="$ps1"
+ALIAS PS1="$ps1"
+
+# ----------------------------------------------------------------------------
+# OTHER
+# ----------------------------------------------------------------------------
+
+# ALIAS u=". deploy/update"
+
+ALIAS e="mcedit"
+ALIAS e~="mcedit ~/.bashrc"
+
+ALIAS 0='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/project; ll'
+ALIAS 1='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-production-hosting-regru/project; ll'
+ALIAS 2='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru/project; ll'
+ALIAS 3='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/project; ll'
+ALIAS 4='cd /var/www/www-root/data/nodejs/server/client-bot/client-bot-user-hosting-regru/project; ll'
+ALIAS 5='cd /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/project; ll'
+
+ALIAS %='0'
+ALIAS %%='1'
+ALIAS %%%='2'
+ALIAS %%%%='3'
+ALIAS %%%%%='4'
+ALIAS %%%%%%='5'
+
+ALIAS f="cd ftp"
+ALIAS ff="..; cd ftp; ll"
+ALIAS p="cd project"
+ALIAS pp="..; cd project; ll"
+
+ALIAS l="pm2 list"
+
+ALIAS s="killall -9 node ; . deploy/s"
+ALIAS r=". deploy/r"
+ALIAS rr=". deploy/rr"
+
+ALIAS a+="pm2 start all"
+ALIAS a-="pm2 stop all"
+ALIAS ar="pm2 restart all"
+
+ALIAS 0+="pm2 start 0"
+ALIAS 0-="pm2 stop 0"
+ALIAS 0r="pm2 restart 0"
+ALIAS 0s="a+ ; 0- ; 0 ; s"
+
+ALIAS 1+="pm2 start 1"
+ALIAS 1-="pm2 stop 1"
+ALIAS 1r="pm2 restart 1"
+ALIAS 1s="a+ ; 1- ; 1 ; s"
+
+ALIAS 2+="pm2 start 2"
+ALIAS 2-="pm2 stop 2"
+ALIAS 2r="pm2 restart 2"
+ALIAS 2s="a+ ; 2- ; 2 ; s"
+
+ALIAS 3+="pm2 start 3"
+ALIAS 3-="pm2 stop 3"
+ALIAS 3r="pm2 restart 3"
+ALIAS 3s="a+ ; 3- ; 3 ; s"
+
+ALIAS 4+="pm2 start 4"
+ALIAS 4-="pm2 stop 4"
+ALIAS 4r="pm2 restart 4"
+ALIAS 4s="a+ ; 4- ; 4 ; s"
+
+ALIAS 5+="pm2 start 5"
+ALIAS 5-="pm2 stop 5"
+ALIAS 5r="pm2 restart 5"
+ALIAS 5s="a+ ; 5- ; 5 ; s"
+
+%
+
+# ──────────────────────────────────────────────────────────────────
+# Has been used for debugging of some forgotten overwhelmed case
+# ──────────────────────────────────────────────────────────────────
+
+# ALIAS c="
+#   rm /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/ftp/* ;
+#   cp /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/ftp/* /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/ftp ;
+#   rm -rf /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/project/* ;
+#   cp -rf /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/project/* /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/project ;
+#   "
+# ALIAS c0s="c ; 0 ; 0- ; s"
+# ALIAS c5s="c ; 5 ; 5- ; s"

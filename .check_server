@@ -1,0 +1,29 @@
+
+# to be called on LOCAL only
+
+# to be included to other files
+
+cant_be_run_on_hosting="THIS SCRIPT CAN'T RUN ON HOSTING. \nEXITING ■"
+
+if [ $PWD = /var/www/www-root/data/nodejs/server/bookocean-bot-developer-hosting-regru ]; then
+  echo -e $cant_be_run_on_hosting
+  check_server_true=1
+  return 1;
+  # exit 0
+fi
+
+if [ $PWD = /var/www/www-root/data/nodejs/server/bookocean-bot-production-hosting-regru ]; then
+  echo -e $cant_be_run_on_hosting
+  check_server_true=1
+  return 1;
+  # exit 0
+fi
+
+if [ $PWD = /var/www/www-root/data/nodejs/server/bookocean-bot-user-hosting-regru ]; then
+  echo -e $cant_be_run_on_hosting
+  check_server_true=1
+  return 1;
+  # exit 0
+fi
+
+check_server_true=0

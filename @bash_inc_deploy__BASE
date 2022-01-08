@@ -1,0 +1,35 @@
+# ----------------------------------------------------------------------------
+# ALIAS
+# ----------------------------------------------------------------------------
+
+alias ALIAS="alias"
+
+# ----------------------------------------------------------------------------
+# FILE SYSTEM -- CD, MD, ETC.
+# ----------------------------------------------------------------------------
+
+ALIAS cls="clear"
+
+alias ren="mv"
+alias rn="ren"
+alias copy="cp"
+ALIAS md="mkdir"
+
+ALIAS @="cd ~/desktop/"
+ALIAS ~="cd ~"
+
+ALIAS ..="cd .."
+ALIAS ...="cd ..; cd .."
+ALIAS ....="cd ..; cd ..; cd .."
+ALIAS .....="cd ..; cd ..; cd ..; cd .."
+ALIAS .....="cd ..; cd ..; cd ..; cd ..; cd .."
+
+alias ports="lsof -nP +c 15 | grep LISTEN" # ports usage
+alias connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
+alias myip="ifconfig |grep inet\ "
+
+# ----------------------------------------------------------------------------
+# GIT
+# ----------------------------------------------------------------------------
+
+origin="https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git"

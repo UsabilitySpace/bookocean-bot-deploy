@@ -1,0 +1,36 @@
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/.define_cu_funcs
+
+cur_dir=$PWD
+
+filename_root="@bash_inc_deploy_"
+
+if (( $(is_hosting) ))
+then
+  filename_include_suffix="hosting"
+  target_dir=~/
+else
+  filename_include_suffix="local"
+  target_dir=~/Desktop/__System/Shell/
+fi
+
+source_dir=$SCRIPT_DIR/
+
+base_file=$filename_root"_BASE"
+included_file=$filename_root$filename_include_suffix
+
+# each project automatically creates in
+# bash its own base and included file
+# either on hosting or locally
+cp $source_dir$base_file     $target_dir$base_file
+cp $source_dir$included_file $target_dir$included_file
+
+# echo $SCRIPT_DIR/$included_file
+source $SCRIPT_DIR/$included_file
+
+echo Hey, all conveniency commands has been successfully set up to aliases! And also, "$base_file" and "$included_file" has been successfully deployed/re-deployed to "$target_dir"
+echo So, you\'ll be able to see all new conveniency commands the next time you enter your shell without running any setup or update commands.
+
+cd $cur_dir
+
