@@ -5,12 +5,12 @@
 
 dir_root=/var/www/www-root/data/nodejs/server
 
-dir_developer=bookocean-bot/bookocean-bot-developer-hosting-regru/project
-dir_production=bookocean-bot/bookocean-bot-production-hosting-regru/project
-dir_user=bookocean-bot/bookocean-bot-user-hosting-regru/project
-dir_vip_0000=bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/project
-dir_client=client-bot/client-bot-user-hosting-regru/project
-dir_sinar=sinar-bot/sinar-bot-telegramsites-hosting-regru/project
+dir_developer=bookocean-bot/bookocean-bot-developer-hosting-regru/bot
+dir_production=bookocean-bot/bookocean-bot-production-hosting-regru/bot
+dir_user=bookocean-bot/bookocean-bot-user-hosting-regru/bot
+dir_vip_0000=bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/bot
+dir_client=client-bot/client-bot-user-hosting-regru/bot
+dir_sinar=sinar-bot/sinar-bot-telegramsites-hosting-regru/bot
 
 dir_rooted_developer=$dir_root/$dir_developer
 dir_rooted_production=$dir_root/$dir_production

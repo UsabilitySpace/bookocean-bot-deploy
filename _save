@@ -10,7 +10,7 @@ if [ $check_server_true = "1" ] ; then return; fi
 
 # do main job:
 
-cd ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/project
+cd ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/bot
 echo $PWD
 git add . -f
 commit_message="save $(date)"

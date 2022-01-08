@@ -22,12 +22,12 @@ ALIAS PS1="$ps1"
 ALIAS e="mcedit"
 ALIAS e~="mcedit ~/.bashrc"
 
-ALIAS 0='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/project; ll'
-ALIAS 1='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-production-hosting-regru/project; ll'
-ALIAS 2='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru/project; ll'
-ALIAS 3='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/project; ll'
-ALIAS 4='cd /var/www/www-root/data/nodejs/server/client-bot/client-bot-user-hosting-regru/project; ll'
-ALIAS 5='cd /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/project; ll'
+ALIAS 0='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/bot; ll'
+ALIAS 1='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-production-hosting-regru/bot; ll'
+ALIAS 2='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru/bot; ll'
+ALIAS 3='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/bot; ll'
+ALIAS 4='cd /var/www/www-root/data/nodejs/server/client-bot/client-bot-user-hosting-regru/bot; ll'
+ALIAS 5='cd /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot; ll'
 
 ALIAS %='0'
 ALIAS %%='1'
@@ -90,8 +90,8 @@ ALIAS 5s="a+ ; 5- ; 5 ; s"
 # ALIAS c="
 #   rm /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/ftp/* ;
 #   cp /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/ftp/* /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/ftp ;
-#   rm -rf /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/project/* ;
-#   cp -rf /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/project/* /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/project ;
+#   rm -rf /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot/* ;
+#   cp -rf /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/bot/* /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot ;
 #   "
 # ALIAS c0s="c ; 0 ; 0- ; s"
 # ALIAS c5s="c ; 5 ; 5- ; s"

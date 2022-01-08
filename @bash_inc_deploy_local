@@ -22,5 +22,5 @@ ALIAS ll="ls -l "
 
 ALIAS connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
 
-ALIAS save=". deploy/_save"
-ALIAS merge=". deploy/_merge"
+ALIAS save=". ../deploy/_save"
+ALIAS merge=". ../deploy/_merge"
