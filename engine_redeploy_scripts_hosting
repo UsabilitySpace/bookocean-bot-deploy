@@ -26,6 +26,8 @@ ALIAS n~="mcedit ~/.bashrc"
 # COMMON : BOT ENGINE
 # ----------------------------------------------------------------------------
 
+ALIAS u="git pull"
+
 ALIAS s="clear; npm start"
 ALIAS k="killall -9 node"
 ALIAS ks="killall -9 node; clear; npm start"
