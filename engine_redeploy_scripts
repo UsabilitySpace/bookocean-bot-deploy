@@ -6,6 +6,8 @@ cur_dir=$PWD
 
 filename_root="engine_redeploy_scripts_"
 
+myip
+
 if (( $(is_hosting) == "1" ))
 then
   echo "Including hosting..."
