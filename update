@@ -24,9 +24,6 @@ ll
 
 # this will throw error if bot engine has not been init at leas once:
 
-# old: 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
-# new: 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
-
 git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git        bot
 git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-config.git config
 git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-deploy.git deploy
