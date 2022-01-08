@@ -1,0 +1,56 @@
+
+# u = update
+
+# to be called on SERVER only
+
+# to be called:
+#   — either alone
+#   — or by r
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# must include '.define_cu_vars'
+source $SCRIPT_DIR/.define_cu_vars
+
+# _save dir_cur:
+dir_cur=$PWD
+
+# go to working dir:
+cd $dir_root
+
+# do main job:
+
+rm -r $dir_rooted_developer
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_developer
+
+rm -r $dir_rooted_production
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_production
+
+rm -r $dir_rooted_user
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_user
+
+rm -r $dir_rooted_vip_0000
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_vip_0000
+
+rm -r $dir_rooted_client
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_client
+
+rm -r $dir_rooted_sinar
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_sinar
+
+chown -R www-root:www-root $dir_root
+
+# return to $cur_dir:
+cd $dir_cur
+
+# ─────────────────────────────────
+
+# value added in all public files
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy
+
+# ─────────────────────────────────
+
+# must do nothing else ■
+

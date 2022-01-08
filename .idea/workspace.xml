@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a87b51-6aaf-40a1-80fa-c166da031b9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/create" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy__BASE" beforeDir="false" afterPath="$PROJECT_DIR$/@bash_inc_deploy__BASE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.update.OLD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create" beforeDir="false" afterPath="$PROJECT_DIR$/create" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/update" beforeDir="false" afterPath="$PROJECT_DIR$/update" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipize" beforeDir="false" afterPath="$PROJECT_DIR$/.zipize.OLD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641605092959</updated>
-      <workItem from="1641605094594" duration="6621000" />
+      <workItem from="1641605094594" duration="6981000" />
     </task>
     <servers />
   </component>

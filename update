@@ -1,56 +1,33 @@
 
-# u = update
+# updates usability space bot engine
 
-# to be called on SERVER only
-
-# to be called:
-#   — either alone
-#   — or by r
+# (still under development)
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/@bash_inc_deploy__BASE
 
-# must include '.define_cu_vars'
-source $SCRIPT_DIR/.define_cu_vars
+curdir="$PWD"
+cd "/var/www/www-root/data/nodejs/server"
 
-# _save dir_cur:
-dir_cur=$PWD
+# this will throw error if bot engine has been init at leas once:
 
-# go to working dir:
-cd $dir_root
+md usability-space-bot-engine
+cd usability-space-bot-engine
 
-# do main job:
+# this will throw error if bot engine has been init at leas once:
 
-rm -r $dir_rooted_developer
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_developer
+md bot
+md config
+md deploy
+md menu
 
-rm -r $dir_rooted_production
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_production
+ll
 
-rm -r $dir_rooted_user
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_user
+# this will throw error if bot engine has been init at leas once:
 
-rm -r $dir_rooted_vip_0000
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_vip_0000
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git bot
 
-rm -r $dir_rooted_client
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_client
+echo "Creation of a new usability space bot engine has finished."
+echo "See for absense of errors (above) to check if the creation process has been successful."
 
-rm -r $dir_rooted_sinar
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git $dir_rooted_sinar
-
-chown -R www-root:www-root $dir_root
-
-# return to $cur_dir:
-cd $dir_cur
-
-# ─────────────────────────────────
-
-# value added in all public files
-
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/@bash_inc_deploy
-
-# ─────────────────────────────────
-
-# must do nothing else ■
-
+cd curdir
