@@ -4,49 +4,34 @@
 # ─────────────────────────────────
 
 function string_contains_substring() {
-    string=$1
-    substring=$2
-    if [[ $string == *"$substring"* ]]
-    then
-        echo 1;
-    else
-        echo 0;
-    fi
+  string=$1
+  substring=$2
+  if [[ $string == *"$substring"* ]]
+  then
+      echo 1;
+  else
+      echo 0;
+  fi
 }
 
 function is_hosting() {
-    if (( $(string_contains_substring "$PWD" "hosting") ))
-    then
-        echo 1;
-    else
-        echo 0;
-    fi
+  if [[ $(string_contains_substring $(myip) "192.168.0.104") ]]; then
+    echo 0
+  else
+    echo 1
+  fi
 }
 
 function is_local() {
-    if (( $(string_contains_substring "$PWD" "local") ))
+    if (( $(is_hosting) == "1" ))
     then
-        echo 1;
-    else
         echo 0;
+    else
+        echo 1;
     fi
-}
-
-function produce_command_by_template() {
-    command_template=$1
-    commands_max_inclusive=$2
-    for ((i=0; i < commands_max_inclusive + 1; i++))
-    {
-        a="${command_template/%n/"$i"}"
-        eval "$a"
-    }
 }
 
 function script_dir() {
   SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
   echo $SCRIPT_DIR
-}
-
-function myip() {
-  ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
 }

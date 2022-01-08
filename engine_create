@@ -4,7 +4,7 @@
 # (still under development)
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/@bash_inc_deploy__BASE
+source $SCRIPT_DIR/engine_redeploy_scripts
 
 curdir="$PWD"
 cd "/var/www/www-root/data/nodejs/server"
@@ -30,7 +30,7 @@ git clone --single-branch --branch master https://UsabilitySpace:ghp_rhPcypQzESw
 git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-deploy.git deploy
 git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-menu.git   menu
 
-echo "Creation of a new usability space bot engine has finished."
-echo "See for absense of errors (above) to check if the creation process has been successful."
+echo "Creation of a new bot engine has finished."
+echo "See for absense of errors above to check if the creation process has been successful."
 
 cd curdir

@@ -21,7 +21,6 @@ function go(){
   cd $1 ; ll
 }
 
-ALIAS @="cd ~/desktop/"
 ALIAS ~="cd ~"
 
 ALIAS ..="cd .."
@@ -32,10 +31,5 @@ ALIAS .....="cd ..; cd ..; cd ..; cd ..; cd .."
 
 alias ports="lsof -nP +c 15 | grep LISTEN" # ports usage
 alias connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
-alias myip="ifconfig |grep inet\ "
+alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
-# ----------------------------------------------------------------------------
-# GIT
-# ----------------------------------------------------------------------------
-
-origin="https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git"

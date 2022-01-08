@@ -1,6 +1,6 @@
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/@bash_inc_deploy__BASE
+source $SCRIPT_DIR/engine_redeploy_scripts__BASE
 
  # ----------------------------------------------------------------------------
 # PS1
@@ -17,9 +17,10 @@ ALIAS PS1="$ps1"
 # OTHER
 # ----------------------------------------------------------------------------
 
+ALIAS @="cd ~/desktop/"
 
 ALIAS ll="ls -l "
 
 ALIAS connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
 
-ALIAS save=". ../_save"
+ALIAS save=". ../deploy/_save_2_git"

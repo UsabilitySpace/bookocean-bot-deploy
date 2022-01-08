@@ -6,9 +6,12 @@
 # must include '.check_server' beforehand
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/.check_server
+source $SCRIPT_DIR/.define_cu_funcs
 
-if [ $check_server_true = "1" ] ; then return; fi
+if [ $(is_hosting) = "1" ] ; then
+  echo "can be run on hosting only"
+  return;
+fi
 
 # do main job:
 

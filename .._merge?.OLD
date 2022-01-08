@@ -27,7 +27,7 @@ git checkout developer
 # value added in all public files
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/@bash_inc_deploy
+source $SCRIPT_DIR/engine_redeploy_scripts
 
 # ─────────────────────────────────
 
