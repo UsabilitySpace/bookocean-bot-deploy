@@ -6,7 +6,7 @@ cur_dir=$PWD
 
 filename_root="engine_redeploy_scripts_"
 
-if (( $(is_hosting) ))
+if (( $(is_hosting) == "1" ))
 then
   echo "Including hosting"
   filename_include_suffix="hosting"
