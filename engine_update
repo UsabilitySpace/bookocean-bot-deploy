@@ -28,3 +28,14 @@ echo "Updating of the existing bot engine has finished."
 echo "See for absense of errors above to check if the updating has been successful."
 
 cd curdir
+
+# ─────────────────────────────────
+
+# value added in all public files
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/engine_redeploy_scripts
+
+# ─────────────────────────────────
+
+# must do nothing else ■
