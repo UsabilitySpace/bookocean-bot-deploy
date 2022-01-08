@@ -17,7 +17,7 @@ ALIAS PS1="$ps1"
 # COMMON : BASH
 # ----------------------------------------------------------------------------
 
-# ALIAS ll="ll --all"
+ALIAS ll="ls -l --all"
 
 ALIAS l="pm2 list"
 
