@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a87b51-6aaf-40a1-80fa-c166da031b9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/..@bash_inc_deploy_hosting_OLD" beforeDir="false" afterPath="$PROJECT_DIR$/..@bash_inc_deploy_hosting_OLD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.._merge?.OLD" beforeDir="false" afterPath="$PROJECT_DIR$/.._merge?.OLD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/..k.OLD" beforeDir="false" afterPath="$PROJECT_DIR$/..k.OLD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/..ks.OLD" beforeDir="false" afterPath="$PROJECT_DIR$/..ks.OLD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/..s.OLD" beforeDir="false" afterPath="$PROJECT_DIR$/..s.OLD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/..update.OLD" beforeDir="false" afterPath="$PROJECT_DIR$/..update.OLD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/..zipize.OLD" beforeDir="false" afterPath="$PROJECT_DIR$/..zipize.OLD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.bashrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.define_cu_funcs" beforeDir="false" afterPath="$PROJECT_DIR$/.define_cu_funcs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.define_cu_vars" beforeDir="false" afterPath="$PROJECT_DIR$/..define_cu_vars.OLD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy" beforeDir="false" afterPath="$PROJECT_DIR$/engine_redeploy_scripts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy__BASE" beforeDir="false" afterPath="$PROJECT_DIR$/engine_redeploy_scripts__BASE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy_hosting" beforeDir="false" afterPath="$PROJECT_DIR$/engine_redeploy_scripts_hosting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy_local" beforeDir="false" afterPath="$PROJECT_DIR$/engine_redeploy_scripts_local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_save" beforeDir="false" afterPath="$PROJECT_DIR$/_save_2_git" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create" beforeDir="false" afterPath="$PROJECT_DIR$/engine_create" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update" beforeDir="false" afterPath="$PROJECT_DIR$/engine_update" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine_redeploy_scripts_hosting" beforeDir="false" afterPath="$PROJECT_DIR$/engine_redeploy_scripts_hosting" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641605092959</updated>
-      <workItem from="1641605094594" duration="17935000" />
+      <workItem from="1641605094594" duration="19271000" />
     </task>
     <servers />
   </component>

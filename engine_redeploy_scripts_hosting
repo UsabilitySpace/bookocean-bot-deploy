@@ -26,80 +26,88 @@ ALIAS n~="mcedit ~/.bashrc"
 # COMMON : BOT ENGINE
 # ----------------------------------------------------------------------------
 
-ALIAS 0+="pm2 start 0"
-ALIAS 0-="pm2 stop 0"
-ALIAS 0s="a+ ; 0- ; 0 ; s"
-ALIAS 0r="pm2 restart 0"
-ALIAS 0-+="0r"
-
-ALIAS 1+="pm2 start 1"
-ALIAS 1-="pm2 stop 1"
-ALIAS 1s="a+ ; 1- ; 1 ; s"
-ALIAS 1r="pm2 restart 1"
-ALIAS 1-+="1r"
-
-ALIAS 2+="pm2 start 2"
-ALIAS 2-="pm2 stop 2"
-ALIAS 2s="a+ ; 2- ; 2 ; s"
-ALIAS 2r="pm2 restart 2"
-ALIAS 2-+="2r"
-
-ALIAS 3+="pm2 start 3"
-ALIAS 3-="pm2 stop 3"
-ALIAS 3s="a+ ; 3- ; 3 ; s"
-ALIAS 3r="pm2 restart 3"
-ALIAS 3-+="3r"
-
-ALIAS 4+="pm2 start 4"
-ALIAS 4-="pm2 stop 4"
-ALIAS 4s="a+ ; 4- ; 4 ; s"
-ALIAS 4r="pm2 restart 4"
-ALIAS 4-+="4r"
-
-ALIAS 5+="pm2 start 5"
-ALIAS 5-="pm2 stop 5"
-ALIAS 5s="a+ ; 5- ; 5 ; s"
-ALIAS 5r="pm2 restart 5"
-ALIAS 5-+="5r"
-
-ALIAS a+="pm2 start all"
-ALIAS a-="pm2 stop all"
-ALIAS as="a+"
-ALIAS ar="pm2 restart all"
-ALIAS a-+="ar"
+ALIAS s="clear; npm start"
+ALIAS k="killall -9 node"
+ALIAS ks="killall -9 node; clear; npm start"
 
 ALIAS f="cd ftp"
 ALIAS ff="..; cd ftp; ll"
 ALIAS p="cd project"
 ALIAS pp="..; cd project; ll"
 
+ALIAS 0s="a+ ; 0- ; 0 ; s"
+ALIAS 0+="pm2 start 0"
+ALIAS 0-="pm2 stop 0"
+ALIAS 0r="pm2 restart 0"
+ALIAS 0-+="0r"
+
+ALIAS 1s="a+ ; 1- ; 1 ; s"
+ALIAS 1+="pm2 start 1"
+ALIAS 1-="pm2 stop 1"
+ALIAS 1r="pm2 restart 1"
+ALIAS 1-+="1r"
+
+ALIAS 2s="a+ ; 2- ; 2 ; s"
+ALIAS 2+="pm2 start 2"
+ALIAS 2-="pm2 stop 2"
+ALIAS 2r="pm2 restart 2"
+ALIAS 2-+="2r"
+
+ALIAS 3s="a+ ; 3- ; 3 ; s"
+ALIAS 3+="pm2 start 3"
+ALIAS 3-="pm2 stop 3"
+ALIAS 3r="pm2 restart 3"
+ALIAS 3-+="3r"
+
+ALIAS 4s="a+ ; 4- ; 4 ; s"
+ALIAS 4+="pm2 start 4"
+ALIAS 4-="pm2 stop 4"
+ALIAS 4r="pm2 restart 4"
+ALIAS 4-+="4r"
+
+ALIAS 5s="a+ ; 5- ; 5 ; s"
+ALIAS 5+="pm2 start 5"
+ALIAS 5-="pm2 stop 5"
+ALIAS 5r="pm2 restart 5"
+ALIAS 5-+="5r"
+
+ALIAS a+="pm2 start all"
+ALIAS a-="pm2 stop all"
+ALIAS ar="pm2 restart all"
+ALIAS a-+="ar"
+ALIAS ar="cls ; pm2 delete all ; . engine_recreate ; _+"
+ALIAS rr="ar"
+
 function plus(){
   if [ -z "$1" ] ; then
-    echo pm2 start
+    echo "Use name of the process as a parameter of this routine to 'pm2 start' the process with that name with pm2 --only flag."
+    echo "Or use 'a+' command to 'pm2 start' all the processes."
   else
-    b
+    pm2 start ../config/config.pm2.ecosystem.js --only $1
   fi
 }
-ALIAS +="plus"
+ALIAS "_+"="plus"
 
 function minus(){
-
+  if [ -z "$1" ] ; then
+    echo "Use name of the process as a parameter of this routine to 'pm2 stop' the process with that name with pm2 --only flag."
+    echo "Or use 'a-' command to 'pm2 stop' all the processes."
+  else
+    pm2 stop ../config/config.pm2.ecosystem.js --only $1
+  fi
 }
-ALIAS -="minus"
+ALIAS "_-"="minus"
 
 function minus_plus(){
-
+  if [ -z "$1" ] ; then
+    echo "Use name of the process as a parameter of this routine to 'pm2 restart' the process with that name with pm2 --only flag."
+    echo "Or use 'a-+' command to 'pm2 restart' all the processes."
+  else
+    pm2 restart ../config/config.pm2.ecosystem.js --only $1
+  fi
 }
-ALIAS -+="minus_plus"
-
-ALIAS s="clear; npm start"
-
-ALIAS k="killall -9 node"
-ALIAS ks="killall -9 node; clear; npm start"
-
-ALIAS r="pm2 restart all"
-ALIAS rr=". rr"
-
+ALIAS "_-+"="minus_plus"
+ALIAS _r="minus_plus"
 
 # ----------------------------------------------------------------------------
 # NEW
