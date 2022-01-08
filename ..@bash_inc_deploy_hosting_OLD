@@ -17,7 +17,7 @@ ALIAS PS1="$ps1"
 # OTHER
 # ----------------------------------------------------------------------------
 
-# ALIAS u=". deploy/update"
+# ALIAS u=". update"
 
 ALIAS e="mcedit"
 ALIAS e~="mcedit ~/.bashrc"
@@ -43,9 +43,9 @@ ALIAS pp="..; cd project; ll"
 
 ALIAS l="pm2 list"
 
-ALIAS s="killall -9 node ; . deploy/s"
-ALIAS r=". deploy/r"
-ALIAS rr=". deploy/rr"
+ALIAS s="killall -9 node ; . s"
+ALIAS r=". r"
+ALIAS rr=". rr"
 
 ALIAS a+="pm2 start all"
 ALIAS a-="pm2 stop all"

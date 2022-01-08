@@ -1,13 +1,12 @@
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 source $SCRIPT_DIR/@bash_inc_deploy__BASE
-source $SCRIPT_DIR/@bash_inc_deploy_hosting_OLD
 
 # ----------------------------------------------------------------------------
 # PS1
 # ----------------------------------------------------------------------------
 
-ps1='███████████ \D{%Y-%m-%d} • \D{%a} • \D{%T} ███ \h ███ \u ███ \w ▶ '
+ps1='███████████ \D{%Y-%m-%d} • \D{%aa} • \D{%T} ███ \h ███ \u ███ \w ▶ '
 
 export PS1="$ps1"
 
@@ -15,74 +14,136 @@ ALIAS ps1="$ps1"
 ALIAS PS1="$ps1"
 
 # ----------------------------------------------------------------------------
-# OTHER
+# COMMON : BASH
 # ----------------------------------------------------------------------------
 
-# ALIAS u=". deploy/update"
+ALIAS l="pm2 list"
 
-ALIAS e="mcedit"
-ALIAS e~="mcedit ~/.bashrc"
+ALIAS n="mcedit"
+ALIAS n~="mcedit ~/.bashrc"
 
-ALIAS 0='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/bot; ll'
-ALIAS 1='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-production-hosting-regru/bot; ll'
-ALIAS 2='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru/bot; ll'
-ALIAS 3='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/bot; ll'
-ALIAS 4='cd /var/www/www-root/data/nodejs/server/client-bot/client-bot-user-hosting-regru/bot; ll'
-ALIAS 5='cd /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot; ll'
+# ----------------------------------------------------------------------------
+# COMMON : BOT ENGINE
+# ----------------------------------------------------------------------------
 
-ALIAS %='0'
-ALIAS %%='1'
-ALIAS %%%='2'
-ALIAS %%%%='3'
-ALIAS %%%%%='4'
-ALIAS %%%%%%='5'
+ALIAS 0+="pm2 start 0"
+ALIAS 0-="pm2 stop 0"
+ALIAS 0s="a+ ; 0- ; 0 ; s"
+ALIAS 0r="pm2 restart 0"
+ALIAS 0-+="0r"
+
+ALIAS 1+="pm2 start 1"
+ALIAS 1-="pm2 stop 1"
+ALIAS 1s="a+ ; 1- ; 1 ; s"
+ALIAS 1r="pm2 restart 1"
+ALIAS 1-+="1r"
+
+ALIAS 2+="pm2 start 2"
+ALIAS 2-="pm2 stop 2"
+ALIAS 2s="a+ ; 2- ; 2 ; s"
+ALIAS 2r="pm2 restart 2"
+ALIAS 2-+="2r"
+
+ALIAS 3+="pm2 start 3"
+ALIAS 3-="pm2 stop 3"
+ALIAS 3s="a+ ; 3- ; 3 ; s"
+ALIAS 3r="pm2 restart 3"
+ALIAS 3-+="3r"
+
+ALIAS 4+="pm2 start 4"
+ALIAS 4-="pm2 stop 4"
+ALIAS 4s="a+ ; 4- ; 4 ; s"
+ALIAS 4r="pm2 restart 4"
+ALIAS 4-+="4r"
+
+ALIAS 5+="pm2 start 5"
+ALIAS 5-="pm2 stop 5"
+ALIAS 5s="a+ ; 5- ; 5 ; s"
+ALIAS 5r="pm2 restart 5"
+ALIAS 5-+="5r"
+
+ALIAS a+="pm2 start all"
+ALIAS a-="pm2 stop all"
+ALIAS as="a+"
+ALIAS ar="pm2 restart all"
+ALIAS a-+="ar"
 
 ALIAS f="cd ftp"
 ALIAS ff="..; cd ftp; ll"
 ALIAS p="cd project"
 ALIAS pp="..; cd project; ll"
 
-ALIAS l="pm2 list"
+function plus(){
+  if [ -z "$1" ] ; then
+    echo pm2 start
+  else
+    b
+  fi
+}
+ALIAS +="plus"
 
-ALIAS s="killall -9 node ; . deploy/s"
-ALIAS r=". deploy/r"
-ALIAS rr=". deploy/rr"
+function minus(){
 
-ALIAS a+="pm2 start all"
-ALIAS a-="pm2 stop all"
-ALIAS ar="pm2 restart all"
+}
+ALIAS -="minus"
 
-ALIAS 0+="pm2 start 0"
-ALIAS 0-="pm2 stop 0"
-ALIAS 0r="pm2 restart 0"
-ALIAS 0s="a+ ; 0- ; 0 ; s"
+function minus_plus(){
 
-ALIAS 1+="pm2 start 1"
-ALIAS 1-="pm2 stop 1"
-ALIAS 1r="pm2 restart 1"
-ALIAS 1s="a+ ; 1- ; 1 ; s"
+}
+ALIAS -+="minus_plus"
 
-ALIAS 2+="pm2 start 2"
-ALIAS 2-="pm2 stop 2"
-ALIAS 2r="pm2 restart 2"
-ALIAS 2s="a+ ; 2- ; 2 ; s"
+ALIAS s="clear; npm start"
 
-ALIAS 3+="pm2 start 3"
-ALIAS 3-="pm2 stop 3"
-ALIAS 3r="pm2 restart 3"
-ALIAS 3s="a+ ; 3- ; 3 ; s"
+ALIAS k="killall -9 node"
+ALIAS ks="killall -9 node; clear; npm start"
 
-ALIAS 4+="pm2 start 4"
-ALIAS 4-="pm2 stop 4"
-ALIAS 4r="pm2 restart 4"
-ALIAS 4s="a+ ; 4- ; 4 ; s"
+ALIAS r="pm2 restart all"
+ALIAS rr=". rr"
 
-ALIAS 5+="pm2 start 5"
-ALIAS 5-="pm2 stop 5"
-ALIAS 5r="pm2 restart 5"
-ALIAS 5s="a+ ; 5- ; 5 ; s"
 
-%
+# ----------------------------------------------------------------------------
+# NEW
+# ----------------------------------------------------------------------------
+
+ALIAS 0='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine ; ll'
+ALIAS 1='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/bot ; ll'
+ALIAS 2='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config ; ll'
+ALIAS 3='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy ; ll'
+ALIAS 4='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu ; ll'
+
+ALIAS @='0'
+ALIAS @@='1'
+ALIAS @@@='2'
+ALIAS @@@@='3'
+ALIAS @@@@@='4'
+
+ALIAS e='0'
+ALIAS b='1'
+ALIAS c='2'
+ALIAS d='3'
+ALIAS m='4'
+
+@ ; ll
+
+# ----------------------------------------------------------------------------
+# OLD
+# ----------------------------------------------------------------------------
+
+ALIAS 00='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/bot; ll'
+ALIAS 11='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-production-hosting-regru/bot; ll'
+ALIAS 22='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru/bot; ll'
+ALIAS 33='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/bot; ll'
+ALIAS 44='cd /var/www/www-root/data/nodejs/server/client-bot/client-bot-user-hosting-regru/bot; ll'
+ALIAS 55='cd /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot; ll'
+
+ALIAS %='00'
+ALIAS %%='11'
+ALIAS %%%='22'
+ALIAS %%%%='33'
+ALIAS %%%%%='44'
+ALIAS %%%%%%='55'
+
+# % ; ll
 
 # ──────────────────────────────────────────────────────────────────
 # Has been used for debugging of some forgotten overwhelmed case
@@ -94,5 +155,5 @@ ALIAS 5s="a+ ; 5- ; 5 ; s"
 #   rm -rf /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot/* ;
 #   cp -rf /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/bot/* /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot ;
 #   "
-# ALIAS c0s="c ; 0 ; 0- ; s"
-# ALIAS c5s="c ; 5 ; 5- ; s"
+# ALIAS c0s="c ; 00 ; 00- ; s"
+# ALIAS c5s="c ; 55 ; 55- ; s"

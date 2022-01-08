@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a87b51-6aaf-40a1-80fa-c166da031b9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/update" beforeDir="false" afterPath="$PROJECT_DIR$/update" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.check_server" beforeDir="false" afterPath="$PROJECT_DIR$/.check_server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.define_cu_funcs" beforeDir="false" afterPath="$PROJECT_DIR$/.define_cu_funcs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy__BASE" beforeDir="false" afterPath="$PROJECT_DIR$/@bash_inc_deploy__BASE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy_hosting" beforeDir="false" afterPath="$PROJECT_DIR$/@bash_inc_deploy_hosting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy_hosting_OLD" beforeDir="false" afterPath="$PROJECT_DIR$/..@bash_inc_deploy_hosting_OLD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@bash_inc_deploy_local" beforeDir="false" afterPath="$PROJECT_DIR$/@bash_inc_deploy_local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_merge?" beforeDir="false" afterPath="$PROJECT_DIR$/.._merge?.OLD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k" beforeDir="false" afterPath="$PROJECT_DIR$/..k.OLD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ks" beforeDir="false" afterPath="$PROJECT_DIR$/..ks.OLD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/r" beforeDir="false" afterPath="$PROJECT_DIR$/..r.OLD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rr" beforeDir="false" afterPath="$PROJECT_DIR$/..rr.OLD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s" beforeDir="false" afterPath="$PROJECT_DIR$/..s.OLD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641605092959</updated>
-      <workItem from="1641605094594" duration="10573000" />
+      <workItem from="1641605094594" duration="15714000" />
     </task>
     <servers />
   </component>

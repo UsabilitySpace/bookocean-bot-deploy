@@ -17,6 +17,9 @@ ALIAS md="mkdir"
 function nd(){
   md $1 ; cd $1 ; ll
 }
+function go(){
+  cd $1 ; ll
+}
 
 ALIAS @="cd ~/desktop/"
 ALIAS ~="cd ~"
