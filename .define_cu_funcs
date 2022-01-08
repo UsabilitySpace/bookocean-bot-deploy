@@ -15,10 +15,10 @@ function string_contains_substring() {
 }
 
 function is_hosting() {
-  if [[ $(string_contains_substring $(myip) "192.168.0.104") ]]; then
-    echo 0
-  else
+  if [[ $(string_contains_substring $(myip) "192.168.0.104") == 0 ]]; then
     echo 1
+  else
+    echo 0
   fi
 }
 
