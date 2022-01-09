@@ -24,7 +24,7 @@ commit_message=${1:-$commit_message}
 git commit -m "$commit_message"
 git push -f
 
-# git push https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git -f
+# git push https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-bot.git -f
 
 # ─────────────────────────────────
 
