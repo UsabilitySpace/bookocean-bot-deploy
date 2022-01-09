@@ -66,6 +66,8 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     if [ "$type" -eq "-2" ] ; then
 
+      git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
+
     elif [ "$type" -eq "-1" ] ; then
 
       echo "Running eval:"
