@@ -1,15 +1,15 @@
-Host github.com-repo-bookocean-engine-repo-engine-bot
+Host github.com-repo-bookocean-engine-bot
       Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-bot
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
 
-Host github.com-repo-bookocean-engine-repo-engine-config
+Host github.com-repo-bookocean-engine-config
       Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-config
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
 
-Host github.com-repo-bookocean-engine-repo-engine-deploy
+Host github.com-repo-bookocean-engine-deploy
       Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-deploy
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
 
-Host github.com-repo-bookocean-engine-repo-engine-menu
+Host github.com-repo-bookocean-engine-menu
       Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-menu
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu

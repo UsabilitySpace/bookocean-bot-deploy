@@ -18,10 +18,10 @@ git remote set-url origin https://UsabilitySpace:ghp_rhPcypQzESw0wpPwc6Or2tSxaar
 
   # > Enter a file in which to save the key (/Users/you/.ssh/id_algorithm): [Press enter]
 
-    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.bookocean-engine-repo-engine-bot     # a9A387aagf?Q_
-    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.bookocean-engine-repo-engine-config  # a9A387aagf?Q_
-    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.bookocean-engine-repo-engine-deploy  # a9A387aagf?Q_
-    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.bookocean-engine-repo-engine-menu    # a9A387aagf?Q_
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-bookocean-engine-bot     # a9A387aagf?Q_
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-bookocean-engine-config  # a9A387aagf?Q_
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-bookocean-engine-deploy  # a9A387aagf?Q_
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-bookocean-engine-menu    # a9A387aagf?Q_
 
     git remote remove origin ; git remote add origin
 
@@ -43,41 +43,48 @@ git remote set-url origin https://UsabilitySpace:ghp_rhPcypQzESw0wpPwc6Or2tSxaar
 
     # Then, in that shell, you need to add your private key, and type your passphrase :
 
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-bot
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-config
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-deploy
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-menu
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
 
     # Then, when you use ssh to connect, add the -A option :
 
       ssh -A user@remote1
 
-    #
+    # For Mac os (skip for Linux?)
 
-    Host github.com-repo-bookocean-engine-repo-engine-bot
-      Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-bot
+        Host github.com-repo-bookocean-engine-bot
+            Hostname github.com
+            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
 
-    Host github.com-repo-bookocean-engine-repo-engine-config
-      Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-config
+        Host github.com-repo-bookocean-engine-config
+            Hostname github.com
+            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
 
-    Host github.com-repo-bookocean-engine-repo-engine-deploy
-      Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-deploy
+        Host github.com-repo-bookocean-engine-deploy
+            Hostname github.com
+            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
 
-    Host github.com-repo-bookocean-engine-repo-engine-menu
-      Hostname github.com
-      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-menu
+        Host github.com-repo-bookocean-engine-menu
+            Hostname github.com
+            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+
+    # For Linux
+
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
 
     # Using multiple repositories on one server
 
-      git clone git@github.com-repo-1:OWNER/repo-1.git
+      git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git
 
-git remote set-url origin git@github.bookocean-engine-repo-engine-bot:UsabilitySpace/bookocean-engine-bot.git
-git remote set-url origin git@github.bookocean-engine-repo-config:UsabilitySpace/bookocean-engine-config.git
-git remote set-url origin git@github.bookocean-engine-repo-deploy:UsabilitySpace/bookocean-engine-deploy.git
-git remote set-url origin git@github.bookocean-engine-repo-menu:UsabilitySpace/bookocean-engine-menu.git
+git remote set-url origin git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git
+git remote set-url origin git@github.com-repo-bookocean-engine-repo-config:UsabilitySpace/bookocean-engine-config.git
+git remote set-url origin git@github.com-repo-bookocean-engine-repo-deploy:UsabilitySpace/bookocean-engine-deploy.git
+git remote set-url origin git@github.com-repo-bookocean-engine-repo-menu:UsabilitySpace/bookocean-engine-menu.git
 
 git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-bot.git    ; git remote -v
 git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-config.git ; git remote -v
