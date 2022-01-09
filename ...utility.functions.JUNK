@@ -80,6 +80,14 @@ git remote set-url origin https://UsabilitySpace:ghp_rhPcypQzESw0wpPwc6Or2tSxaar
     # Using multiple repositories on one server
 
       git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git
+      git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git
+
+    # Using multiple repositories on one server
+
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIILRkepuUKyEDjPI+9HJ3Okgzc+kVps0SGth3LI7dGfj kobuch@ya.ru
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIECGgbiK+/nsXOYNQZvNECHyqn0Hm2pYwho4pkY8nvB0 kobuch@ya.ru
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJMGCP92Ab2qBC+LiHUDTeDC7qovO9q/nlCfTknaCa9P kobuch@ya.ru
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINmTONKPdrc7/5v8BCqmwBfdSbOm1I8mO3UE4mDRptf7 kobuch@ya.ru
 
 git remote set-url origin git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git
 git remote set-url origin git@github.com-repo-bookocean-engine-repo-config:UsabilitySpace/bookocean-engine-config.git
