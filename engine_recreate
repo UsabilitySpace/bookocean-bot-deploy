@@ -1,0 +1,95 @@
+rm -rf "/var/www/www-root/data/nodejs/server/usability-space-bot-engine"
+
+type_1="0"
+
+while [ "$type_1" -ne "1" ] && [ "$type_1" -ne "2" ] ; do
+
+  echo "────────────────────────────────────────────"
+  echo "WOULD YOU WANT TO RECREATE BOT ENGINE?"
+  echo "────────────────────────────────────────────"
+  echo "  ● 1 — Don't recreate bot engine, ask developer (STRONGLY RECOMMENDED);"
+  echo "  ● 2 — Do recreate bot engine, don't ask developer or you're developer (YOU KNOW WHAT YOU DO)."
+  echo "────────────────────────────────────────────"
+  echo "Enter your choice — 1 or 2 : "
+  echo "────────────────────────────────────────────"
+
+  read type_1
+
+done
+
+if [ "$type_1" -eq "1" ] ; then
+
+  echo "OK. Bot engine won't be recreated."
+  echo "If you want to recrteate bot engine, run this script again or ask developer."
+  echo "◼︎"
+  
+else
+  
+  type_2="0"
+
+  while [ "$type_2" -ne "1" ] && [ "$type_2" -ne "2" ] ; do
+
+    echo "────────────────────────────────────────────"
+    echo "CAUTION!!! THIS MAY RUIN YOUR BOT ENGINE!!!"
+    echo "IT'S STRONGLY RECOMMENDED NOT TO DO THIS!!!"
+    echo "────────────────────────────────────────────"
+    echo "WOULD YOU WANT, STILL, TO RECREATE BOT ENGINE?"
+    echo "────────────────────────────────────────────"
+    echo "  ● 1 — I WON'T recreate bot engine (I'LL ASK THE DEVELOPER FOR THAT);"
+    echo "  ● 2 — I WILL recreate bot engine myself (I KNOW WHAT YOU DO, AND I AM FULLY AWARE OF ALL RISKS FOR MY BOTS DOING THAT)."
+    echo "────────────────────────────────────────────"
+    echo "ENTER YOUR CHOICE — 1 OR 2 : "
+    echo "────────────────────────────────────────────"
+  
+    read type_2
+ 
+  done
+  
+  if [ "$type_2" -eq "1" ] ; then
+  
+    echo "OK. Bot engine won't be recreated."
+    echo "If you want to recrteate bot engine, run this script again or ask developer."
+    echo "◼︎"
+    
+  else
+    
+    type_3="0"
+
+    while [ "$type_3" -ne "1" ] && [ "$type_3" -ne "2" ] ; do
+  
+      echo "────────────────────────────────────────────"
+      echo "WARGING!!! ALL YOU BOT MENUS ARE GOING NOW"
+      echo "TO DELETED FROM THIS HOSTING!!!"
+      echo "────────────────────────────────────────────"
+      echo "WOULD YOU WANT ALL YOU BOT MENUS TO BE DELETED"
+      echo "FROM THIS HOSTING RIGHT NOW?"
+      echo "────────────────────────────────────────────"
+      echo "  ● 1 — Stop recreating bot engine (DON'T DELETE MY BOT MENUS, I'LL AND ASK THE DEVELOPER);"
+      echo "  ● 2 — Precceed recreating bot engine (AND, AS THE FIRST STEP, DELETE ALL MY BOT MENUS FROM THIS HOSTING)."
+      echo "────────────────────────────────────────────"
+      echo "Enter your choice — 1 or 2 : "
+      echo "────────────────────────────────────────────"
+    
+      read type_3
+   
+    done
+
+    if [ "$type_3" -eq "1" ] ; then
+
+      echo "OK. Bot engine won't be recreated. YOU BOT MENUS HASN'T BEEN DELETED."
+      echo "If you want to recrteate bot engine again, run this script again or ask developer."
+      echo "◼︎"
+
+    else
+
+      rm -rf
+
+      SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+      source $SCRIPT_DIR/engine_create
+
+    fi
+    
+  fi 
+  
+fi
+
