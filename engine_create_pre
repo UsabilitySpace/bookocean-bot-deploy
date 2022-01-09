@@ -45,7 +45,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     echo "Which you wanna do:"
     echo "  ● 1 — git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy ; "
-    echo "  ● 2 — eval \"\$(ssh-agent -s)\""
+    echo "  ● 2 — eval \"\$(ssh-agent -s)\" and then add EXISTING private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key"
     echo "Enter your choice — 1 or 2 : "
 
     read type
@@ -70,6 +70,11 @@ source $SCRIPT_DIR/engine_redeploy_scripts
     # do:
 
       eval "$(ssh-agent -s)"
+
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
 
     # report user
 
