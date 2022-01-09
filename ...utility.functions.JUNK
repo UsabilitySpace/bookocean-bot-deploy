@@ -82,7 +82,7 @@ git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bo
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-config.git ; git remote -v
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-deploy.git ; git remote -v
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-menu.git   ; git remote -v
-
+#
 function scpftp1(){
     scp -r root@194.67.87.198:/var/www/www-root/data/nodejs/server/$1/$2/ftp ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/ftp/$2
 }
