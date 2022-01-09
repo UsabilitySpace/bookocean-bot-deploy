@@ -39,16 +39,43 @@ source $SCRIPT_DIR/engine_redeploy_scripts
   
     md "deploy"
 
-  # this will work only once or twice
-  # after git gives out this key;
-  # so, you may need to change ghp_-key:
+  type="0"
 
-    git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
+  while [ "$type" -ne "1" ] && [ "$type" -ne "2" ] ; do
 
-  # report user
+    echo "Which you wanna do:"
+    echo "  ● 1 — git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy ; "
+    echo "  ● 2 — eval \"$(ssh-agent -s)\""
+    echo "Enter your choice — 1 or 2 : "
 
-    echo "Creation of a new bot engine has finished."
-    echo "See for absense of errors above to check if the creation process has been successful."
+    read type
+
+  done
+
+  if [ "$type" -eq "1" ] ; then
+
+    # this will work only once or twice
+    # after git gives out this key;
+    # so, you may need to change ghp_-key:
+
+      git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
+
+    # report user
+
+      echo "Cloning has finished."
+      echo "See for absense of errors above to check if the creation process has been successful."
+
+  else
+
+    # do:
+
+      eval "$(ssh-agent -s)"
+
+    # report user
+
+      echo "Ssh-agent has been started in background".
+
+  fi
 
 # ─────────────────────────────────
 # finish
