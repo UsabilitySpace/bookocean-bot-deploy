@@ -82,7 +82,7 @@ git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bo
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-config.git ; git remote -v
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-deploy.git ; git remote -v
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-menu.git   ; git remote -v
-
+#
 git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-engine-config.git
 
 function scpftp1(){
