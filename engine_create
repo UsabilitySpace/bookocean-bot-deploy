@@ -188,7 +188,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
     elif [ "$type" -eq "4" ] ; then
 
       echo "Crating ssh config"
-      cp ./~_ssh_config ~/.ssh/config
+      cp /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/~_ssh_config ~/.ssh/config
       echo "Ssh config has been created"
 
     elif [ "$type" -eq "5" ] ; then
@@ -199,7 +199,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
       cp ~/.ssh/config  ~/.ssh/config-$(date +"%Y-%d-%m-%H-%M-%S")
 
       # append new content to the end of ~/.ssh/config
-      cat ./~_ssh_config ~/.ssh/config > ~/.ssh/config
+      cat /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/~_ssh_config ~/.ssh/config > ~/.ssh/config
 
       echo "Ssh config has been appended"
 
