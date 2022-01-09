@@ -41,7 +41,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
   # do job
 
-    type="-"
+    type="f"
 
     while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] ; do
 
