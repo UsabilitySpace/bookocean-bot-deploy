@@ -31,7 +31,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
   nd "usability-space-bot-engine"
 
 # ─────────────────────────────────
-# ssh keys
+# prepare ssh keys
 # ───────────────────────────────── 
 
   # create .ssh/git-deploy-key
