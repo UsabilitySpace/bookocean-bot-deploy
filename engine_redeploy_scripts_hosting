@@ -28,10 +28,10 @@ ALIAS n~="mcedit ~/.bashrc"
 # COMMON : BOT ENGINE
 # ----------------------------------------------------------------------------
 
-epc=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_create_pre"
-ec=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_create"
-er=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_recreate"
-eu=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_update"
+ALIAS epc=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_create_pre"
+ALIAS ec=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_create"
+ALIAS er=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_recreate"
+ALIAS eu=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_update"
 
 ALIAS s="clear; npm start"
 ALIAS k="killall -9 node"
