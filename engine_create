@@ -55,7 +55,19 @@
 
     eval "$(ssh-agent -s)"
 
-  # ssh add
+  # create ssh-keys
+
+    # ask user
+
+      echo "Chose how you want to create ssh keys on this hosting:"
+      echo "  ● 1 — create new keys (you will need to publish them to the git, which will need access to git and may take a long time;"
+      echo "  ● 2 — copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password."
+      echo "Which is your choice — 1 or 2 ?"
+
+      read type
+
+
+  # ssh-add 1 st time
 
     ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
     ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
