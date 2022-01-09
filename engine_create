@@ -71,7 +71,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
         eval "$(ssh-agent -s)"
         echo "Ssh-agent has been started in background."
 
-      if [ "$type" -eq "0" ] ; then
+      elif [ "$type" -eq "0" ] ; then
 
         echo "Running eval:"
         eval "$(ssh-agent -s)"
