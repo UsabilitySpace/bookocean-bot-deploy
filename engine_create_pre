@@ -37,7 +37,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
   # create dir "deploy"
   # or report it already exists
   
-    nd "deploy"
+    md "deploy"
 
   # this will work only once or twice
   # after git gives out this key;
@@ -55,5 +55,6 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 # ─────────────────────────────────
 
 # cd $curdir # OF NO NEED
+go deploy
 
 # must do nothing else ■
