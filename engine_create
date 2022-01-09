@@ -44,6 +44,10 @@ function generate_key(){
 
   nd "usability-space-bot-engine"
 
+# cls
+
+  cls
+
 # ─────────────────────────────────
 # ssh keys
 # ───────────────────────────────── 
@@ -184,13 +188,16 @@ function generate_key(){
     md menu
 
   # clone projects using ssh keys
+  # Using multiple repositories on one server
 
-    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-bot.git     bot
-    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-config.git  config
-    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git  deploy
-    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-menu.git    menu
+    git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git       bot
+    git clone git@github.com-repo-bookocean-engine-config:UsabilitySpace/bookocean-engine-config.git config
+    git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
+    git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
 
 # report user
+
+  ll
 
   echo "Creation of a new bot engine has finished."
   echo "See for absense of errors above to check if the creation process has been successful."
