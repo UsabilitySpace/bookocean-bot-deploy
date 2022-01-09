@@ -46,7 +46,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
       type="10"
 
-      while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] && [ "$type" -ne "2" ] && [ "$type" -ne "3" ] && [ "$type" -ne "4" ] && [ "$type" -ne "5" ] ; do
+      while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] && [ "$type" -ne "2" ] && [ "$type" -ne "3" ] && [ "$type" -ne "4" ] && [ "$type" -ne "5" ] && [ "$type" -ne "6" ]; do
 
         echo "Chose how you want to create your keys:"
         echo "  ● 0 — Run eval \"\$(ssh-agent -s)\", and after that add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
@@ -54,8 +54,9 @@ source $SCRIPT_DIR/engine_redeploy_scripts
         echo "  ● 2 — Copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
         echo "  ● 3 — Generate new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time;"
         echo "  ● 4 — Create ~/.ssh/config as a totally new file;"
-        echo "  ● 5 — Append ~/.ssh/config at the end."
-        echo "Enter your choice — 0 or 1 or 2 or 3 or 4: "
+        echo "  ● 5 — Append ~/.ssh/config at the end;"
+        echo "  ● 6 — Clone from git;"
+        echo "Enter your choice — 0-6: "
 
         read type
 
@@ -180,7 +181,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
         cp ./~_ssh_config ~/.ssh/config
         echo "Ssh config has been created"
 
-      else
+      elif [ "$type" -eq "5" ] ; then
 
         echo "Appinding ssh config"
 
@@ -192,42 +193,42 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
         echo "Ssh config has been appended"
 
+      else
+
+        echo "Starting cloning from git:"
+
+        # create folders
+        # (just for joke, git would create them)
+        # create dirs
+        # or report they already exist
+
+        md bot
+        md config
+        md deploy
+        md menu
+
+        # clone projects using ssh keys
+        # Using multiple repositories on one server
+
+        git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git       bot
+        git clone git@github.com-repo-bookocean-engine-config:UsabilitySpace/bookocean-engine-config.git config
+        git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
+        git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
+
+        # show content of /var/www/www-root/data/nodejs/server/usability-space-bot-engine/
+
+        ll
+
+        # report user
+
+        echo "Creation of a new bot engine has finished."
+        echo "See for absense of errors above to check if the creation process has been successful."
+
       fi
 
   # return from .ssh/git-deploy-key
 
-    ...
-
-# ─────────────────────────────────
-# clone git
-# ─────────────────────────────────
-
-  # create folders
-  # (just for joke, git would create them)
-  # create dirs
-  # or report they already exist
-
-    md bot
-    md config
-    md deploy
-    md menu
-
-  # clone projects using ssh keys
-  # Using multiple repositories on one server
-
-    git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git       bot
-    git clone git@github.com-repo-bookocean-engine-config:UsabilitySpace/bookocean-engine-config.git config
-    git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
-    git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
-
-  # show content of /var/www/www-root/data/nodejs/server/usability-space-bot-engine/
-
-    ll
-
-  # report user
-
-    echo "Creation of a new bot engine has finished."
-    echo "See for absense of errors above to check if the creation process has been successful."
+  ...
 
 # ─────────────────────────────────
 # finish
