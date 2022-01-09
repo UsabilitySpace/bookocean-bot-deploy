@@ -144,12 +144,12 @@ ALIAS m='4'
 # OLD
 # ----------------------------------------------------------------------------
 
-ALIAS 00='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/bot; ll'
-ALIAS 11='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-production-hosting-regru/bot; ll'
-ALIAS 22='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru/bot; ll'
-ALIAS 33='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/bot; ll'
-ALIAS 44='cd /var/www/www-root/data/nodejs/server/client-bot/client-bot-user-hosting-regru/bot; ll'
-ALIAS 55='cd /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/bot; ll'
+ALIAS 00='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-developer-hosting-regru/project; ll'
+ALIAS 11='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-production-hosting-regru/project; ll'
+ALIAS 22='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru/project; ll'
+ALIAS 33='cd /var/www/www-root/data/nodejs/server/bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270/project; ll'
+ALIAS 44='cd /var/www/www-root/data/nodejs/server/client-bot/client-bot-user-hosting-regru/project; ll'
+ALIAS 55='cd /var/www/www-root/data/nodejs/server/sinar-bot/sinar-bot-telegramsites-hosting-regru/project; ll'
 
 ALIAS %='00'
 ALIAS %%='11'
