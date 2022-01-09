@@ -52,6 +52,28 @@ git remote set-url origin https://UsabilitySpace:ghp_rhPcypQzESw0wpPwc6Or2tSxaar
 
       ssh -A user@remote1
 
+    #
+
+    Host github.com-repo-bookocean-engine-repo-engine-bot
+      Hostname github.com
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-bot
+
+    Host github.com-repo-bookocean-engine-repo-engine-config
+      Hostname github.com
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-config
+
+    Host github.com-repo-bookocean-engine-repo-engine-deploy
+      Hostname github.com
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-deploy
+
+    Host github.com-repo-bookocean-engine-repo-engine-menu
+      Hostname github.com
+      IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.bookocean-engine-repo-engine-menu
+
+    # Using multiple repositories on one server
+
+      git clone git@github.com-repo-1:OWNER/repo-1.git
+
 git remote set-url origin git@github.bookocean-engine-repo-engine-bot:UsabilitySpace/bookocean-engine-bot.git
 git remote set-url origin git@github.bookocean-engine-repo-config:UsabilitySpace/bookocean-engine-config.git
 git remote set-url origin git@github.bookocean-engine-repo-deploy:UsabilitySpace/bookocean-engine-deploy.git
@@ -81,7 +103,7 @@ git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bo
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-config.git ; git remote -v
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-deploy.git ; git remote -v
 git remote rm origin ; git remote add origin http://github.com/UsabilitySpace/bookocean-engine-menu.git   ; git remote -v
-#
+
 git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-engine-config.git
 
 function scpftp1(){
