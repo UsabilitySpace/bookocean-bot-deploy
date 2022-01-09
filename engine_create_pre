@@ -45,7 +45,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     echo "Which you wanna do:"
     echo "  ● 1 — git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy ; "
-    echo "  ● 2 — eval \"$(ssh-agent -s)\""
+    echo "  ● 2 — eval \"\$(ssh-agent -s)\""
     echo "Enter your choice — 1 or 2 : "
 
     read type
