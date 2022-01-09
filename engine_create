@@ -48,7 +48,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
       while [ "$type" -ne "1" ] && [ "$type" -ne "2" ] ; do
 
-        echo "Chose what you want to do:"
+        echo "Chose how you want to create your keys:"
         echo "  ● 0 — Run eval \"\$(ssh-agent -s)\" and then add EXISTING private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key"
         echo "  ● 1 — Copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
         echo "  ● 2 — Generate new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time."
