@@ -13,10 +13,14 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 # ─────────────────────────────────
 # prepare
 # ─────────────────────────────────
-  
+
 # remempber curdir
 
-  curdir="$PWD"
+  curdir="$PWD" # not used in this script
+
+# cls
+
+  cls
 
 # go to root working dir
 
@@ -25,10 +29,6 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 # make base engine dir
 
   nd "usability-space-bot-engine"
-
-# cls
-
-  cls
 
 # ─────────────────────────────────
 # ssh keys
@@ -187,9 +187,11 @@ source $SCRIPT_DIR/engine_redeploy_scripts
     git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
     git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
 
-# report user
+# show content of /var/www/www-root/data/nodejs/server/usability-space-bot-engine/
 
   ll
+
+# report user
 
   echo "Creation of a new bot engine has finished."
   echo "See for absense of errors above to check if the creation process has been successful."
@@ -197,9 +199,5 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 # ─────────────────────────────────
 # finish
 # ─────────────────────────────────
-
-# return to cur dir
-
-  # cd curdir # of no need
 
 # must do nothing else ■
