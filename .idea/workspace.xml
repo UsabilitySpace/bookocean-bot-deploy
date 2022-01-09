@@ -26,6 +26,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -44,7 +45,7 @@
       <workItem from="1641605094594" duration="25178000" />
       <workItem from="1641707766298" duration="8010000" />
       <workItem from="1641719759003" duration="3057000" />
-      <workItem from="1641725266527" duration="19231000" />
+      <workItem from="1641725266527" duration="20578000" />
     </task>
     <servers />
   </component>
