@@ -23,11 +23,11 @@ function go(){
 
 ALIAS ~="cd ~"
 
-ALIAS ..="cd .."
-ALIAS ...="cd ..; cd .."
-ALIAS ....="cd ..; cd ..; cd .."
-ALIAS .....="cd ..; cd ..; cd ..; cd .."
-ALIAS .....="cd ..; cd ..; cd ..; cd ..; cd .."
+ALIAS ..="cd .. ; ll"
+ALIAS ...="cd .. ; cd .. ; ll"
+ALIAS ....="cd .. ; cd .. ; cd .. ; ll"
+ALIAS .....="cd .. ; cd .. ; cd .. ; cd .. ; ll"
+ALIAS .....="cd .. ; cd .. ; cd .. ; cd .. ; cd .. ; ll"
 
 alias ports="lsof -nP +c 15 | grep LISTEN" # ports usage
 alias connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
