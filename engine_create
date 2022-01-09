@@ -49,6 +49,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
       while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] && [ "$type" -ne "2" ] && [ "$type" -ne "3" ] && [ "$type" -ne "4" ] && [ "$type" -ne "5" ] && [ "$type" -ne "6" ]; do
 
         echo "Chose how you want to create your keys:"
+        echo "  ● -1 — Run eval \"\$(ssh-agent -s)\""
         echo "  ● 0 — Run eval \"\$(ssh-agent -s)\", and after that add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
         echo "  ● 1 — Just add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
         echo "  ● 2 — Copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
@@ -56,7 +57,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
         echo "  ● 4 — Create ~/.ssh/config as a totally new file;"
         echo "  ● 5 — Append ~/.ssh/config at the end;"
         echo "  ● 6 — Clone from git;"
-        echo "Enter your choice — 0-6: "
+        echo "Enter your choice — -1-6: "
 
         read type
 
@@ -64,11 +65,17 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     # create keys
 
+      if [ "$type" -eq "-1" ] ; then
+
+        echo "Running eval:"
+        eval "$(ssh-agent -s)"
+        echo "Ssh-agent has been started in background."
+
       if [ "$type" -eq "0" ] ; then
 
         echo "Running eval:"
         eval "$(ssh-agent -s)"
-        echo "Ssh-agent has been started in background".
+        echo "Ssh-agent has been started in background."
 
         echo "Adding existing keys:"
         ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
