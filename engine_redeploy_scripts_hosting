@@ -154,6 +154,15 @@ ALIAS %%%%='33'
 ALIAS %%%%%='44'
 ALIAS %%%%%%='55'
 
+ALIAS r00="curdir=$PWD ; 00 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
+ALIAS r11="curdir=$PWD ; 11 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
+ALIAS r22="curdir=$PWD ; 22 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
+ALIAS r33="curdir=$PWD ; 33 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
+ALIAS r44="curdir=$PWD ; 44 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
+ALIAS r55="curdir=$PWD ; 55 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
+
+ALIAS r="r00 ; r11 ; r22 ; r33 ; r44 ; r55"
+
 # %
 
 # ──────────────────────────────────────────────────────────────────
