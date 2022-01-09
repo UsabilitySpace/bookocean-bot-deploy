@@ -41,54 +41,34 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
   # do job
 
-    type="10"
+    type="0"
 
-    while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] ; do
+    while [ "$type" -ne "1" ] ; do
 
       echo "Which you wanna do:"
-      echo "  ● 0 — Run eval \"\$(ssh-agent -s)\", and after that then add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
       echo "  ● 1 — Run git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy;"
-      echo "Enter your choice — 0 or 1 or 2 : "
+      echo "Enter your choice — 1 : "
 
       read type
 
     done
 
-    if [ "$type" -eq "0" ] ; then
+    # this will work only once or twice
+    # after git gives out this key;
+    # so, you may need to change ghp_-key:
 
-      # do:
+    git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
 
-        eval "$(ssh-agent -s)"
+    # report user
 
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
-
-      # report user
-
-        echo "Ssh-agent has been started in background".
-
-    else
-
-      # this will work only once or twice
-      # after git gives out this key;
-      # so, you may need to change ghp_-key:
-
-        git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
-
-      # report user
-
-        echo "Cloning has finished."
-        echo "See for absense of errors above to check if the creation process has been successful."
-
-    fi
+    echo "Cloning has finished."
+    echo "See for absense of errors above to check if the creation process has been successful."
 
 # ─────────────────────────────────
 # finish
 # ─────────────────────────────────
 
 # cd $curdir # OF NO NEED
-go deploy
+# go deploy
 
 # must do nothing else ■
