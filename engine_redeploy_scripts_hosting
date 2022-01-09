@@ -82,7 +82,7 @@ ALIAS a-="pm2 stop all"
 ALIAS ar="pm2 restart all"
 ALIAS a-+="ar"
 ALIAS ar="cls ; pm2 delete all ; . engine_recreate ; _+"
-ALIAS rr="ar"
+## ALIAS rr="ar"
 
 function plus(){
   if [ -z "$1" ] ; then
