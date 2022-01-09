@@ -134,6 +134,8 @@ ALIAS c='2'
 ALIAS d='3'
 ALIAS m='4'
 
+ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
+
 @
 
 # ----------------------------------------------------------------------------
