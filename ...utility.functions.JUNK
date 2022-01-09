@@ -5,34 +5,78 @@ git remote -v
 git remote rm origin
 
 git remote add origin git@github.com:UsabilitySpace/bookocean-bot.git
-git remote add origin git@github.com:UsabilitySpace/bookocean-bot-config.git
-git remote add origin git@github.com:UsabilitySpace/bookocean-bot-deploy.git
-git remote add origin git@github.com:UsabilitySpace/bookocean-bot-menu.git
+git remote add origin git@github.com:UsabilitySpace/bookocean-engine-config.git
+git remote add origin git@github.com:UsabilitySpace/bookocean-engine-deploy.git
+git remote add origin git@github.com:UsabilitySpace/bookocean-engine-menu.git
 
 git remote set-url origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git
 
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+
+  ssh-keygen -t ed25519         -C "kobuch@ya.ru"  # In most cases
+  ssh-keygen -t rsa     -b 4096 -C "kobuch@ya.ru"  # If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+
+  # > Enter a file in which to save the key (/Users/you/.ssh/id_algorithm): [Press enter]
+
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-bot     # a9A387aagf?Q_
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-engine-config  # a9A387aagf?Q_
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-engine-deploy  # a9A387aagf?Q_
+    cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key ; ssh-keygen -t ed25519 -C "kobuch@ya.ru" # github.com-repo-engine-menu    # a9A387aagf?Q_
+
+    git remote remove origin ; git remote add origin
+
+
+  # > Enter passphrase (empty for no passphrase): [Type a passphrase]
+  # > Enter same passphrase again: [Type passphrase again]
+
+    # a9A387aagf?Q_
+    # a9A387aagf?Q_
+    # a9A387aagf?Q_
+    # a9A387aagf?Q_
+
+  # https://stackoverflow.com/questions/8499145/adding-private-key-to-ssh-agent
+
+    # ssh-agent wrap another command, you can for example wrap a shell
+
+      eval "$(ssh-agent -s)"
+      # VS.
+      ssh-agent bash
+
+    # Then, in that shell, you need to add your private key, and type your passphrase :
+
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bot
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-engine-config
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-engine-deploy
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-engine-menu
+
+    # Then, when you use ssh to connect, add the -A option :
+
+      ssh -A user@remote1
+
 git remote set-url origin git@github.com-repo-bot:UsabilitySpace/bookocean-bot.git
-git remote set-url origin git@github.com-repo-config:UsabilitySpace/bookocean-bot-config.git
+git remote set-url origin git@github.com-repo-config:UsabilitySpace/bookocean-engine-config.git
+git remote set-url origin git@github.com-repo-deploy:UsabilitySpace/bookocean-engine-deploy.git
+git remote set-url origin git@github.com-repo-menu:UsabilitySpace/bookocean-engine-menu.git
 
 git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git ; git remote -v
-git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-config.git ; git remote -v
-git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
-git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-menu.git ; git remote -v
+git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-config.git ; git remote -v
+git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-menu.git ; git remote -v
 
 git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot.git ; git remote -v
-git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot-config.git ; git remote -v
-git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
-git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-bot-enum.git ; git remote -v
+git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-engine-config.git ; git remote -v
+git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-engine-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin git@github.com:UsabilitySpace/bookocean-engine-menu.git ; git remote -v
 
 git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot.git ; git remote -v
-git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot-config.git ; git remote -v
-git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
-git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-bot-enum.git ; git remote -v
+git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-engine-config.git ; git remote -v
+git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-engine-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin https://git@github.com:UsabilitySpace/bookocean-engine-menu.git ; git remote -v
 
 git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot.git ; git remote -v
-git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot-config.git ; git remote -v
-git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot-deploy.git ; git remote -v
-git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-bot-enum.git ; git remote -v
+git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-engine-config.git ; git remote -v
+git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-engine-deploy.git ; git remote -v
+git remote rm origin ; git remote add origin ssh://git@github.com:UsabilitySpace/bookocean-engine-menu.git ; git remote -v
 
 function scpftp1(){
     scp -r root@194.67.87.198:/var/www/www-root/data/nodejs/server/$1/$2/ftp ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/ftp/$2

@@ -25,10 +25,10 @@ ll
 
 # this will throw error if bot engine has been (fully or partially) created at least once:
 
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git        bot
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-config.git config
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-deploy.git deploy
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot-menu.git   menu
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-bot.git            bot
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-config.git  config
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git  deploy
+git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-menu.git    menu
 
 echo "Creation of a new bot engine has finished."
 echo "See for absense of errors above to check if the creation process has been successful."
