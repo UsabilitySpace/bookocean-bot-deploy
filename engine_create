@@ -187,14 +187,14 @@ source $SCRIPT_DIR/engine_redeploy_scripts
     git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
     git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
 
-# show content of /var/www/www-root/data/nodejs/server/usability-space-bot-engine/
+  # show content of /var/www/www-root/data/nodejs/server/usability-space-bot-engine/
 
-  ll
+    ll
 
-# report user
+  # report user
 
-  echo "Creation of a new bot engine has finished."
-  echo "See for absense of errors above to check if the creation process has been successful."
+    echo "Creation of a new bot engine has finished."
+    echo "See for absense of errors above to check if the creation process has been successful."
 
 # ─────────────────────────────────
 # finish

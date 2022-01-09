@@ -38,10 +38,10 @@ source $SCRIPT_DIR/engine_redeploy_scripts
     cd deploy : git pull : ..
     cd menu   : git pull : ..
 
-# report user
+  # report user
 
-  echo "Updating of current bot engine has finished."
-  echo "See for absense of errors above to check if the creation process has been successful."
+    echo "Updating of current bot engine has finished."
+    echo "See for absense of errors above to check if the creation process has been successful."
 
 # ─────────────────────────────────
 # finish
