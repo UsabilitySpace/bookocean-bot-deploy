@@ -44,7 +44,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     # ask user
 
-      type="-"
+      type="@"
 
       while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] && [ "$type" -ne "2" ] && [ "$type" -ne "3" ] && [ "$type" -ne "4" ] && [ "$type" -ne "5" ] ; do
 
