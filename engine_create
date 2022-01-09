@@ -59,20 +59,37 @@
 
     # ask user
 
-      echo "Chose how you want to create ssh keys on this hosting:"
-      echo "  ● 1 — create new keys (you will need to publish them to the git, which will need access to git and may take a long time;"
-      echo "  ● 2 — copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password."
-      echo "Which is your choice — 1 or 2 ?"
+      type="0"
 
-      read type
+      while [ "$type" -ne "1" && "$type" -ne "2" ] ; do
 
+        echo "Chose how you want to create ssh keys on this hosting:"
+        echo "  ● 1 — create new keys (you will need to publish them to the git, which will need access to git and may take a long time;"
+        echo "  ● 2 — copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password."
+        echo "Which is your choice — 1 or 2 ?"
 
-  # ssh-add 1 st time
+        read type
 
-    ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
-    ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
-    ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
-    ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+      done
+
+    # create keys
+
+      if [ "$type" -eq "1" ] ; then
+
+        # ssh-add 1 st time
+
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+
+      else
+
+        # copy from developers hosting
+
+        scp -r root@192.168.0.104:/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh
+
+      fi
 
   # create proper ~/.ssh/config
 
@@ -82,35 +99,33 @@
     # append new content to the end of ~/.ssh/config
     cat ./~_ssh_config ~/.ssh/config > ~/.ssh/config
 
-# this will throw error if bot engine has been (fully or partially) created at least once:
+  # return from .ssh/git-deploy-key
 
-md bot
-md config
-md deploy
-md menu
+    ...
 
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-bot.git            bot
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-config.git  config
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git  deploy
-git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-menu.git    menu
+# clone git
 
-echo "Creation of a new bot engine has finished."
-echo "See for absense of errors above to check if the creation process has been successful."
+  # create folders (just for joke)
 
-$(date +"%Y-%d-%m-%H-%M-%S")
+    md bot
+    md config
+    md deploy
+    md menu
 
+  # clone projects
 
-cd curdir
+    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-bot.git     bot
+    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-config.git  config
+    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git  deploy
+    git clone --single-branch --branch master https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-menu.git    menu
 
+# report user
 
+  echo "Creation of a new bot engine has finished."
+  echo "See for absense of errors above to check if the creation process has been successful."
 
-# ─────────────────────────────────
+# return to cur dir
 
-# value added in all public files
-
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/engine_redeploy_scripts
-
-# ─────────────────────────────────
+  # cd curdir # of no need
 
 # must do nothing else ■
