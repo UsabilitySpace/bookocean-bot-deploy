@@ -82,7 +82,7 @@ git remote set-url origin https://UsabilitySpace:ghp_rhPcypQzESw0wpPwc6Or2tSxaar
       git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git       bot
       git clone git@github.com-repo-bookocean-engine-config:UsabilitySpace/bookocean-engine-config.git config
       git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
-      git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-menu.git   menu
+      git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
 
     # Using multiple repositories on one server
 
