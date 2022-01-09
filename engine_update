@@ -16,7 +16,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
 # report user
 
-  echo "STARTING TO CREATE BOT ENGINE:"
+  echo "STARTING TO UPDATE BOT ENGINE:"
 
 # remempber curdir
 
@@ -200,6 +200,6 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 # finish
 # ─────────────────────────────────
 
-# cd $curdir # OF NO NEED
+cd $curdir
 
 # must do nothing else ■
