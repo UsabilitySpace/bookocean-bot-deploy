@@ -33,3 +33,9 @@ alias ports="lsof -nP +c 15 | grep LISTEN" # ports usage
 alias connect="echo adb connect 192.168.0.103; adb connect 192.168.0.103" # ports usage
 alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
+# ----------------------------------------------------------------------------
+# ssh-agent
+# ----------------------------------------------------------------------------
+
+eval "$(ssh-agent -s)"
+

@@ -54,21 +54,7 @@ git remote set-url origin https://UsabilitySpace:ghp_rhPcypQzESw0wpPwc6Or2tSxaar
 
     # For Mac os (skip for Linux?)
 
-        Host github.com-repo-bookocean-engine-bot
-            Hostname github.com
-            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
-
-        Host github.com-repo-bookocean-engine-config
-            Hostname github.com
-            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
-
-        Host github.com-repo-bookocean-engine-deploy
-            Hostname github.com
-            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
-
-        Host github.com-repo-bookocean-engine-menu
-            Hostname github.com
-            IdentityFile=/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+      ~_ssh_config
 
     # For Linux
 
