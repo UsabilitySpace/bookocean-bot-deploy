@@ -14,13 +14,13 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 # prepare
 # ─────────────────────────────────
 
+# report user
+
+  echo "STARTING TO CREATE BOT ENGINE:"
+
 # remempber curdir
 
   curdir="$PWD" # not used in this script
-
-# cls
-
-  cls
 
 # go to root working dir
 

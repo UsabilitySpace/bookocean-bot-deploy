@@ -1,4 +1,3 @@
-rm -rf "/var/www/www-root/data/nodejs/server/usability-space-bot-engine"
 
 type_1="0"
 
@@ -82,7 +81,9 @@ else
 
     else
 
-      rm -rf
+      echo "CLEARING BOT ENGINE..."
+      rm -rf "/var/www/www-root/data/nodejs/server/usability-space-bot-engine"
+      echo "CLEARING BOT ENGINE FINISHED."
 
       SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
       source $SCRIPT_DIR/engine_create
