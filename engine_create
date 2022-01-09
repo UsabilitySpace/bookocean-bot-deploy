@@ -57,7 +57,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
         echo "  ●  4 — Create ~/.ssh/config as a totally new file;"
         echo "  ●  5 — Append ~/.ssh/config at the end;"
         echo "  ●  6 — Clone from git;"
-        echo "Enter your choice — -1-6: "
+        echo "Enter your choice — from -1 to 6: "
 
         read type
 
