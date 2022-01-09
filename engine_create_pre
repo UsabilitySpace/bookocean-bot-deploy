@@ -39,48 +39,50 @@ source $SCRIPT_DIR/engine_redeploy_scripts
   
     md "deploy"
 
-  type="0"
+  # do job
 
-  while [ "$type" -ne "1" ] && [ "$type" -ne "2" ] ; do
+    type="-"
 
-    echo "Which you wanna do:"
-    echo "  ● 1 — git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy ; "
-    echo "  ● 2 — eval \"\$(ssh-agent -s)\" and then add EXISTING private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key"
-    echo "Enter your choice — 1 or 2 : "
+    while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] ; do
 
-    read type
+      echo "Which you wanna do:"
+      echo "  ● 0 — Run eval \"\$(ssh-agent -s)\" and then add EXISTING private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key"
+      echo "  ● 1 — Run git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy ; "
+      echo "Enter your choice — 0 or 1 or 2 : "
 
-  done
+      read type
 
-  if [ "$type" -eq "1" ] ; then
+    done
 
-    # this will work only once or twice
-    # after git gives out this key;
-    # so, you may need to change ghp_-key:
+    if [ "$type" -eq "0" ] ; then
 
-      git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
+      # do:
 
-    # report user
+        eval "$(ssh-agent -s)"
 
-      echo "Cloning has finished."
-      echo "See for absense of errors above to check if the creation process has been successful."
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
 
-  else
+      # report user
 
-    # do:
+        echo "Ssh-agent has been started in background".
 
-      eval "$(ssh-agent -s)"
+    else
 
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
-      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+      # this will work only once or twice
+      # after git gives out this key;
+      # so, you may need to change ghp_-key:
 
-    # report user
+        git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
 
-      echo "Ssh-agent has been started in background".
+      # report user
 
-  fi
+        echo "Cloning has finished."
+        echo "See for absense of errors above to check if the creation process has been successful."
+
+    fi
 
 # ─────────────────────────────────
 # finish

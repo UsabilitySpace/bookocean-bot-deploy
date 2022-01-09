@@ -48,10 +48,11 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
       while [ "$type" -ne "1" ] && [ "$type" -ne "2" ] ; do
 
-        echo "Chose how you want to create ssh keys on this hosting:"
-        echo "  ● 1 — copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
-        echo "  ● 2 — generate new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time."
-        echo "Enter your choice — 1 or 2 : "
+        echo "Chose what you want to do:"
+        echo "  ● 0 — Run eval \"\$(ssh-agent -s)\" and then add EXISTING private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key"
+        echo "  ● 1 — Copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
+        echo "  ● 2 — Generate new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time."
+        echo "Enter your choice — 0 or 1 or 2 : "
 
         read type
 
@@ -59,7 +60,22 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     # create keys
 
-      if [ "$type" -eq "1" ] ; then
+      if [ "$type" -eq "0" ] ; then
+
+        # do:
+
+          eval "$(ssh-agent -s)"
+
+          ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+          ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+          ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+          ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+
+        # report user
+
+          echo "Ssh-agent has been started in background".
+
+      elif [ "$type" -eq "1" ] ; then
         
         # report user
 
@@ -68,6 +84,8 @@ source $SCRIPT_DIR/engine_redeploy_scripts
         # copy from developers hosting
 
           scp -r root@192.168.0.104:/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh
+
+          # scp -r ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/.ssh/git-deploy-key root@194.67.87.198:/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh
 
         # instruct user
 
