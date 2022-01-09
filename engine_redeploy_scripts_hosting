@@ -28,8 +28,6 @@ ALIAS n~="mcedit ~/.bashrc"
 # COMMON : BOT ENGINE
 # ----------------------------------------------------------------------------
 
-ALIAS ecp=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_create_pre"
-ALIAS epc="ecp"
 ALIAS ec=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_create"
 ALIAS er=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_recreate"
 ALIAS eu=". /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_update"
