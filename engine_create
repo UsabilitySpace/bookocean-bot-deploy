@@ -18,7 +18,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
   echo "STARTING TO CREATE BOT ENGINE:"
 
-# remempber curdir
+# remember curdir
 
   curdir="$PWD" # not used in this script
 
