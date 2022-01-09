@@ -28,7 +28,7 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
 # make base engine dir
 
-  nd "usability-space-bot-engine"
+  md "usability-space-bot-engine"
 
 # ─────────────────────────────────
 # prepare ssh keys
@@ -204,6 +204,8 @@ source $SCRIPT_DIR/engine_redeploy_scripts
       echo "Ssh config has been appended"
 
     else
+
+      cd "/var/www/www-root/data/nodejs/server/usability-space-bot-engine"
 
       echo "Starting cloning from git:"
 
