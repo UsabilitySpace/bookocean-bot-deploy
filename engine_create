@@ -11,24 +11,6 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source $SCRIPT_DIR/engine_redeploy_scripts
 
 # ─────────────────────────────────
-# prepare vars
-# ─────────────────────────────────
-
-PASSWORD="a9A387aagf?Q_"
-
-# ─────────────────────────────────
-# prepare functions
-# ─────────────────────────────────
-
-# generates OpenSSH key 31 host
-function generate_key(){
-  echo "Enter:"
-  echo   "● File in which to save the key : $1"
-  echo   "● Passphrase (EXACTELY THE SAME): $PASSWORD"
-  ssh-keygen -t ed25519 -C "kobuch@ya.ru"
-}
-
-# ─────────────────────────────────
 # prepare
 # ─────────────────────────────────
   
@@ -68,7 +50,7 @@ function generate_key(){
 
         echo "Chose how you want to create ssh keys on this hosting:"
         echo "  ● 1 — copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
-        echo "  ● 2 — create new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time."
+        echo "  ● 2 — generate new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time."
         echo "Enter your choice — 1 or 2 : "
 
         read type
@@ -108,7 +90,17 @@ function generate_key(){
         
         # report user
 
-          echo "Creating new keys..."
+          echo "Generating new keys..."
+
+        # define function
+        # generates OpenSSH key 31 host
+
+          function generate_key(){
+            echo "Enter:"
+            echo   "● File in which to save the key : $1"
+            echo   "● Passphrase (EXACTELY THE SAME): a9A387aagf?Q_"
+            ssh-keygen -t ed25519 -C "kobuch@ya.ru"
+          }
 
         # ssh-add 1 st time
         # user need to enter 4 pairs of data
@@ -121,8 +113,7 @@ function generate_key(){
 
         # instruct user
 
-
-          echo "New public & private keys has been added:"
+          echo "New public & private keys has been generated:"
           ll
           
           echo "Public keys content is as follows:"
@@ -180,7 +171,8 @@ function generate_key(){
 # clone git
 # ─────────────────────────────────
 
-  # create folders (just for joke)
+  # create folders
+  # (just for joke, git would create them)
 
     md bot
     md config
