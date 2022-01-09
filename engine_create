@@ -44,198 +44,195 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     # ask user
 
-      type="10"
+    type="10"
 
-      while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] && [ "$type" -ne "2" ] && [ "$type" -ne "3" ] && [ "$type" -ne "4" ] && [ "$type" -ne "5" ] && [ "$type" -ne "6" ]; do
+    while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] && [ "$type" -ne "2" ] && [ "$type" -ne "3" ] && [ "$type" -ne "4" ] && [ "$type" -ne "5" ] && [ "$type" -ne "6" ]; do
 
-        echo "Chose how you want to create your keys:"
-        echo "  ● -1 — Run eval \"\$(ssh-agent -s)\""
-        echo "  ●  0 — Run eval \"\$(ssh-agent -s)\", and after that add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
-        echo "  ●  1 — Just add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
-        echo "  ●  2 — Copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
-        echo "  ●  3 — Generate new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time;"
-        echo "  ●  4 — Create ~/.ssh/config as a totally new file;"
-        echo "  ●  5 — Append ~/.ssh/config at the end;"
-        echo "  ●  6 — Clone from git;"
-        echo "Enter your choice — from -1 to 6: "
+      echo "Chose how you want to create your keys:"
+      echo "  ● -2 — To begin, run git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy;"
+      echo "  ● -1 — Just run eval \"\$(ssh-agent -s)\";"
+      echo "  ●  0 — Run eval \"\$(ssh-agent -s)\", and after that add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
+      echo "  ●  1 — Just add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
+      echo "  ●  2 — Copy existing keys from developer's hosting (you won't need to publish them to the git, so you won't need access to git, but you need to know developer's IP ans SSH login/password;"
+      echo "  ●  3 — Generate new keys (you will need to publish them to the git by yourself, which will need access to git and may take a long time;"
+      echo "  ●  4 — Create ~/.ssh/config as a totally new file;"
+      echo "  ●  5 — Append ~/.ssh/config at the end;"
+      echo "  ●  6 — Clone from git;"
+      echo "Enter your choice — from -1 to 6: "
 
-        read type
+      read type
+
+    done
+
+    if [ "$type" -eq "-2" ] ; then
+
+    elif [ "$type" -eq "-1" ] ; then
+
+      echo "Running eval:"
+      eval "$(ssh-agent -s)"
+      echo "Ssh-agent has been started in background."
+
+    elif [ "$type" -eq "0" ] ; then
+
+      echo "Running eval:"
+      eval "$(ssh-agent -s)"
+      echo "Ssh-agent has been started in background."
+
+      echo "Adding existing keys:"
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+
+    elif [ "$type" -eq "1" ] ; then
+
+      echo "Existing public & private keys are going to be used:"
+      ll
+
+      echo "Public keys content is as follows:"
+      echo "  ● github.com-repo-bookocean-engine-bot.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-bot.pub)"
+      echo "  ● github.com-repo-bookocean-engine-config.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-config.pub)"
+      echo "  ● github.com-repo-bookocean-engine-deploy.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-deploy.pub)"
+      echo "  ● github.com-repo-bookocean-engine-menu.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-menu.pub)"
+      echo "This ↑ public keys has been already added to git by the developer, you don't need to do something about that."
+
+      echo "Adding existing keys:"
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+
+    elif [ "$type" -eq "2" ] ; then
+
+      echo "Copying existing keys from developer's hosting..."
+      scp -r root@192.168.0.104:/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh
+      # scp -r ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/.ssh/git-deploy-key root@194.67.87.198:/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh
+
+      echo "Existing public & private keys has been copied from developer's hosting:"
+      ll
+
+      echo "Public keys content is as follows:"
+      echo "  ● github.com-repo-bookocean-engine-bot.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-bot.pub)"
+      echo "  ● github.com-repo-bookocean-engine-config.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-config.pub)"
+      echo "  ● github.com-repo-bookocean-engine-deploy.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-deploy.pub)"
+      echo "  ● github.com-repo-bookocean-engine-menu.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-menu.pub)"
+      echo "This ↑ public keys has been already added to git by the developer, you don't need to do something about that."
+
+    elif [ "$type" -eq "3" ] ; then
+
+      echo "Generating new keys..."
+
+      # generates OpenSSH key 31 host
+      function generate_key(){
+        echo "Enter:"
+        echo   "● File in which to save the key : $1"
+        echo   "● Passphrase (EXACTELY THE SAME): a9A387aagf?Q_"
+        ssh-keygen -t ed25519 -C "kobuch@ya.ru"
+      }
+
+      # ssh-add 1 st time
+      # user need to enter 4 pairs of data
+      # which are hinted by generate_key:
+
+        generate_key github.com-repo-bookocean-engine-bot
+        generate_key github.com-repo-bookocean-engine-config
+        generate_key github.com-repo-bookocean-engine-deploy
+        generate_key github.com-repo-bookocean-engine-menu
+
+      echo "New public & private keys has been generated:"
+      ll
+
+      echo "Public keys content is as follows:"
+      echo "  ● github.com-repo-bookocean-engine-bot.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-bot.pub)"
+      echo "  ● github.com-repo-bookocean-engine-config.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-config.pub)"
+      echo "  ● github.com-repo-bookocean-engine-deploy.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-deploy.pub)"
+      echo "  ● github.com-repo-bookocean-engine-menu.pub:"
+      echo "    $(cat github.com-repo-bookocean-engine-menu.pub)"
+      echo "This ↑ public keys has NOT been yet added to git, so you need to add them yourself."
+
+      myself="0"
+
+      while [ "$myself" -ne "1" ] ; do
+
+        echo "Has you published the above mentioned public keys to git?"
+        echo "  ● 1 — Yes, I have published the above mentioned public keys to git."
+        echo "Enter 1 when ready..."
+
+        read myself
 
       done
 
-    # create keys
+      # prepare to ssh-add —
+      # launch ssh-agent in background
+      eval "$(ssh-agent -s)"
 
-      if [ "$type" -eq "-1" ] ; then
+      # ssh add
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
+      ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
 
-        echo "Running eval:"
-        eval "$(ssh-agent -s)"
-        echo "Ssh-agent has been started in background."
+    elif [ "$type" -eq "4" ] ; then
 
-      elif [ "$type" -eq "0" ] ; then
+      echo "Crating ssh config"
+      cp ./~_ssh_config ~/.ssh/config
+      echo "Ssh config has been created"
 
-        echo "Running eval:"
-        eval "$(ssh-agent -s)"
-        echo "Ssh-agent has been started in background."
+    elif [ "$type" -eq "5" ] ; then
 
-        echo "Adding existing keys:"
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+      echo "Appinding ssh config"
 
-      elif [ "$type" -eq "1" ] ; then
+      # save backup for safety
+      cp ~/.ssh/config  ~/.ssh/config-$(date +"%Y-%d-%m-%H-%M-%S")
 
-        echo "Existing public & private keys are going to be used:"
-        ll
+      # append new content to the end of ~/.ssh/config
+      cat ./~_ssh_config ~/.ssh/config > ~/.ssh/config
 
-        echo "Public keys content is as follows:"
-        echo "  ● github.com-repo-bookocean-engine-bot.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-bot.pub)"
-        echo "  ● github.com-repo-bookocean-engine-config.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-config.pub)"
-        echo "  ● github.com-repo-bookocean-engine-deploy.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-deploy.pub)"
-        echo "  ● github.com-repo-bookocean-engine-menu.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-menu.pub)"
-        echo "This ↑ public keys has been already added to git by the developer, you don't need to do something about that."
+      echo "Ssh config has been appended"
 
-        echo "Adding existing keys:"
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
+    else
 
-      elif [ "$type" -eq "2" ] ; then
-        
-        echo "Copying existing keys from developer's hosting..."
-        scp -r root@192.168.0.104:/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh
-        # scp -r ~/Desktop/Startuper/@_@BookOcean.io/DEV/bookocean-bot/bookocean-bot-developer-local/.ssh/git-deploy-key root@194.67.87.198:/var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh
+      echo "Starting cloning from git:"
 
-        echo "Existing public & private keys has been copied from developer's hosting:"
-        ll
+      # create folders
+      # (just for joke, git would create them)
+      # create dirs
+      # or report they already exist
 
-        echo "Public keys content is as follows:"
-        echo "  ● github.com-repo-bookocean-engine-bot.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-bot.pub)"
-        echo "  ● github.com-repo-bookocean-engine-config.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-config.pub)"
-        echo "  ● github.com-repo-bookocean-engine-deploy.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-deploy.pub)"
-        echo "  ● github.com-repo-bookocean-engine-menu.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-menu.pub)"
-        echo "This ↑ public keys has been already added to git by the developer, you don't need to do something about that."
+      md bot
+      md config
+      md deploy
+      md menu
 
-      elif [ "$type" -eq "3" ] ; then
-        
-        echo "Generating new keys..."
+      # clone projects using ssh keys
+      # Using multiple repositories on one server
 
-        # generates OpenSSH key 31 host
-        function generate_key(){
-          echo "Enter:"
-          echo   "● File in which to save the key : $1"
-          echo   "● Passphrase (EXACTELY THE SAME): a9A387aagf?Q_"
-          ssh-keygen -t ed25519 -C "kobuch@ya.ru"
-        }
+      git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git       bot
+      git clone git@github.com-repo-bookocean-engine-config:UsabilitySpace/bookocean-engine-config.git config
+      git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
+      git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
 
-        # ssh-add 1 st time
-        # user need to enter 4 pairs of data
-        # which are hinted by generate_key:
+      # show content of /var/www/www-root/data/nodejs/server/usability-space-bot-engine/
 
-          generate_key github.com-repo-bookocean-engine-bot
-          generate_key github.com-repo-bookocean-engine-config
-          generate_key github.com-repo-bookocean-engine-deploy
-          generate_key github.com-repo-bookocean-engine-menu
+      ll
 
-        echo "New public & private keys has been generated:"
-        ll
+      # report user
 
-        echo "Public keys content is as follows:"
-        echo "  ● github.com-repo-bookocean-engine-bot.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-bot.pub)"
-        echo "  ● github.com-repo-bookocean-engine-config.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-config.pub)"
-        echo "  ● github.com-repo-bookocean-engine-deploy.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-deploy.pub)"
-        echo "  ● github.com-repo-bookocean-engine-menu.pub:"
-        echo "    $(cat github.com-repo-bookocean-engine-menu.pub)"
-        echo "This ↑ public keys has NOT been yet added to git, so you need to add them yourself."
+      echo "Creation of a new bot engine has finished."
+      echo "See for absense of errors above to check if the creation process has been successful."
 
-        myself="0"
-
-        while [ "$myself" -ne "1" ] ; do
-
-          echo "Has you published the above mentioned public keys to git?"
-          echo "  ● 1 — Yes, I have published the above mentioned public keys to git."
-          echo "Enter 1 when ready..."
-
-          read myself
-
-        done
-
-        # prepare to ssh-add —
-        # launch ssh-agent in background
-        eval "$(ssh-agent -s)"
-
-        # ssh add
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-bot
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-config
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-deploy
-        ssh-add /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key/github.com-repo-bookocean-engine-menu
-
-      elif [ "$type" -eq "4" ] ; then
-
-        echo "Crating ssh config"
-        cp ./~_ssh_config ~/.ssh/config
-        echo "Ssh config has been created"
-
-      elif [ "$type" -eq "5" ] ; then
-
-        echo "Appinding ssh config"
-
-        # save backup for safety
-        cp ~/.ssh/config  ~/.ssh/config-$(date +"%Y-%d-%m-%H-%M-%S")
-
-        # append new content to the end of ~/.ssh/config
-        cat ./~_ssh_config ~/.ssh/config > ~/.ssh/config
-
-        echo "Ssh config has been appended"
-
-      else
-
-        echo "Starting cloning from git:"
-
-        # create folders
-        # (just for joke, git would create them)
-        # create dirs
-        # or report they already exist
-
-        md bot
-        md config
-        md deploy
-        md menu
-
-        # clone projects using ssh keys
-        # Using multiple repositories on one server
-
-        git clone git@github.com-repo-bookocean-engine-bot:UsabilitySpace/bookocean-engine-bot.git       bot
-        git clone git@github.com-repo-bookocean-engine-config:UsabilitySpace/bookocean-engine-config.git config
-        git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
-        git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
-
-        # show content of /var/www/www-root/data/nodejs/server/usability-space-bot-engine/
-
-        ll
-
-        # report user
-
-        echo "Creation of a new bot engine has finished."
-        echo "See for absense of errors above to check if the creation process has been successful."
-
-      fi
-
-  # return from .ssh/git-deploy-key
-
-  ...
+    fi
 
 # ─────────────────────────────────
 # finish

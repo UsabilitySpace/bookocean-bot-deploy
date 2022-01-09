@@ -53,16 +53,6 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
     done
 
-    # this will work only once or twice
-    # after git gives out this key;
-    # so, you may need to change ghp_-key:
-
-    git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
-
-    # report user
-
-    echo "Cloning has finished."
-    echo "See for absense of errors above to check if the creation process has been successful."
 
 # ─────────────────────────────────
 # finish
