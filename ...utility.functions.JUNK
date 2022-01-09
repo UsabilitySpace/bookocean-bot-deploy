@@ -70,6 +70,8 @@ git remote set-url origin https://UsabilitySpace:ghp_rhPcypQzESw0wpPwc6Or2tSxaar
       git clone git@github.com-repo-bookocean-engine-deploy:UsabilitySpace/bookocean-engine-deploy.git deploy
       git clone git@github.com-repo-bookocean-engine-menu:UsabilitySpace/bookocean-engine-menu.git     menu
 
+      git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy
+
     # Using multiple repositories on one server
 
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIILRkepuUKyEDjPI+9HJ3Okgzc+kVps0SGth3LI7dGfj kobuch@ya.ru

@@ -173,6 +173,8 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 
   # create folders
   # (just for joke, git would create them)
+  # create dirs
+  # or report they already exist
 
     md bot
     md config
