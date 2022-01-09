@@ -241,6 +241,6 @@ source $SCRIPT_DIR/engine_redeploy_scripts
 # finish
 # ─────────────────────────────────
 
-# cd $curdir # OF NO NEED
+cd $curdir # OF NO NEED
 
 # must do nothing else ■
