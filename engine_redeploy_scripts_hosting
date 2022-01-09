@@ -86,30 +86,27 @@ ALIAS rr="ar"
 
 function plus(){
   if [ -z "$1" ] ; then
-    echo "Use name of the process as a parameter of this routine to 'pm2 start' the process with that name with pm2 --only flag."
-    echo "Or use 'a+' command to 'pm2 start' all the processes."
+    pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js 
   else
-    pm2 start ../config/config.pm2.ecosystem.js --only $1
+    pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
   fi
 }
 ALIAS "_+"="plus"
 
 function minus(){
   if [ -z "$1" ] ; then
-    echo "Use name of the process as a parameter of this routine to 'pm2 stop' the process with that name with pm2 --only flag."
-    echo "Or use 'a-' command to 'pm2 stop' all the processes."
+    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
-    pm2 stop ../config/config.pm2.ecosystem.js --only $1
+    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
   fi
 }
 ALIAS "_-"="minus"
 
 function minus_plus(){
   if [ -z "$1" ] ; then
-    echo "Use name of the process as a parameter of this routine to 'pm2 restart' the process with that name with pm2 --only flag."
-    echo "Or use 'a-+' command to 'pm2 restart' all the processes."
+    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
-    pm2 restart ../config/config.pm2.ecosystem.js --only $1
+    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
   fi
 }
 ALIAS "_-+"="minus_plus"
