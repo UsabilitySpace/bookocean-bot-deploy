@@ -46,8 +46,8 @@ source $SCRIPT_DIR/engine_redeploy_scripts
     while [ "$type" -ne "0" ] && [ "$type" -ne "1" ] ; do
 
       echo "Which you wanna do:"
-      echo "  ● 0 — Run eval \"\$(ssh-agent -s)\", and after that then add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key"
-      echo "  ● 1 — Run git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy ; "
+      echo "  ● 0 — Run eval \"\$(ssh-agent -s)\", and after that then add existing private keys from /var/www/www-root/data/nodejs/server/usability-space-bot-engine/.ssh/git-deploy-key;"
+      echo "  ● 1 — Run git clone https://UsabilitySpace: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@github.com/UsabilitySpace/bookocean-engine-deploy.git deploy;"
       echo "Enter your choice — 0 or 1 or 2 : "
 
       read type
