@@ -1,0 +1,76 @@
+
+# starts usability space bot engine
+
+# (still under development)
+
+# ─────────────────────────────────
+# prepare includes
+# ─────────────────────────────────
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source "$SCRIPT_DIR/engine_redeploy_scripts"
+
+# ─────────────────────────────────
+# stop pm2, ONLY IN CASE USER WANTS IT
+# ─────────────────────────────────
+
+restart_1="0"
+
+while [ "$restart_1" -ne "1" ] ; do
+
+  echo "Do you want to stop all current pm2 bots, and start a new set of pm2 bots as configured?"
+  echo "  ● 1 — Yes, I want to stop all current pm2 bots, and start a new set of pm2 bots as configured."
+  echo "Enter 1 when ready..."
+
+  read restart_1
+
+done
+
+if [ "${restart_1}" -eq "1" ] ; then
+  
+  restart_2="0"
+
+  while [ "$restart_2" -ne "1" ] ; do
+  
+    echo "THIS WILL STOP ALL BOTS RUNNING NOW!!!"
+    echo "Do you really want to stop all current pm2 bots, and start a new set of pm2 bots as configured?"
+    echo "IF YOU'RE NOT SURE, WE STRONGLY RECOMMEND YOU TO CONTACT THE ADMIM!!!"
+    echo "  ● 1 — Yes, I really want to stop all current pm2 bots, and start a new set of pm2 bots as configured. AND I UNDERSTAND WHAT I DO."
+    echo "Enter 1 when ready..."
+  
+    read restart_2
+  
+  done
+
+  if [ "${restart_2}" -eq "1" ] ; then
+
+    echo "OK. Bot engine is now going to be restarted"
+    echo "Stopping all currently running pm2 bots..."
+
+    pm2 stop all
+
+    echo "All pm2 bots has been stopped."
+    echo "Now starting a new set of pm2 bots as configured."
+    
+    SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+    source "$SCRIPT_DIR/engine_z_start"
+
+    echo "Starting the new configure set of pm2 bots has finished."
+    echo "◼︎"
+
+  fi
+
+fi
+
+# ─────────────────────────────────
+# restart_1
+# ─────────────────────────────────
+
+
+# ─────────────────────────────────
+# finish
+# ─────────────────────────────────
+
+# cd $curdir # OF NO NEED
+
+# must do nothing else ■
