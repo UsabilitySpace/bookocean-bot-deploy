@@ -70,7 +70,15 @@ for (let BOT_N in Object.keys(a)) {
         args   : `${BOT_N_NAME}`,
     };
 
-    let BOT_N_DATA_1_ECOSYSTEM = JSON.stringify({apps : bots_to_export[BOT_N]});
+    console.log(`JSON.stringify(bots_to_export[BOT_N])`);
+    console.log(JSON.stringify(bots_to_export[BOT_N]));
+
+    let BOT_N_DATA_1_ECOSYSTEM = `module.exports = {
+        apps : [
+            JSON.stringify(bots_to_export[BOT_N])
+        ]
+    }`;
+
     let BOT_N_PATH_1_ECOSYSTEM = `${CONFIG_BOT_RUN}/${BOT_N}_${BOT_N_NAME}_ECOSYSTEM.js`;
 
     fs.writeFileSync(
