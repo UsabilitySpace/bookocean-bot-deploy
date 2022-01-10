@@ -47,7 +47,7 @@ const config_of_this_IP = {
 // EXPORTS
 // ════════════════════════════════════════════════════════
 
-const CONFIG_BOT_RUN = './engine_z_run';
+const CONFIG_BOT_RUN = './engine_run';
 
 let files = fs.readdirSync(CONFIG_BOT_RUN);
 for (const file of files) {
