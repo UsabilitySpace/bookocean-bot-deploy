@@ -86,7 +86,7 @@ ALIAS ar="cls ; pm2 delete all ; . engine_recreate ; _+"
 
 function plus(){
   if [ -z "$1" ] ; then
-    pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js 
+    pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
     pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
   fi
