@@ -1,14 +1,11 @@
 
-# starts / restarts usability space bot engine
-
-# (still under development)
+# deploys usability space bot engine
 
 # ─────────────────────────────────
-# prepare includes
+# deploy
 # ─────────────────────────────────
 
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source $SCRIPT_DIR/engine_redeploy_scripts
+node engine_z_deploy.js
 
 # ─────────────────────────────────
 # finish

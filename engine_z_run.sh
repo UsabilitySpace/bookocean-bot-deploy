@@ -1,5 +1,5 @@
 
-# deploys usability space bot engine
+# starts / restarts usability space bot engine
 
 # (still under development)
 
@@ -11,7 +11,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source $SCRIPT_DIR/engine_redeploy_scripts
 
 # ─────────────────────────────────
-# deploy
+# run
 # ─────────────────────────────────
 
 
