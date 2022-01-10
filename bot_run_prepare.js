@@ -5,7 +5,7 @@
 // ════════════════════════════════════════════════════════
 
 const iFaces = require('os').networkInterfaces();
-const config_of_bot_engine = require("/var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.bot.engine.js");
+const config_of_bot_engine = require("../config/config.bot.engine.js");
 
 const fs   = require('fs')
 const path = require('path');
@@ -47,7 +47,7 @@ const config_of_this_IP = {
 // EXPORTS
 // ════════════════════════════════════════════════════════
 
-const CONFIG_BOT_RUN = '/var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config-bot-run';
+const CONFIG_BOT_RUN = './bot_run';
 
 let files = fs.readdirSync(CONFIG_BOT_RUN);
 for (const file of files) {
