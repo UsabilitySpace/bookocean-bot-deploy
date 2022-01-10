@@ -75,7 +75,7 @@ for (let BOT_N in Object.keys(a)) {
 
     let BOT_N_DATA_1_ECOSYSTEM = `module.exports = {
         apps : [
-            JSON.stringify(bots_to_export[BOT_N])
+            ${JSON.stringify(bots_to_export[BOT_N])}
         ]
     }`;
 
@@ -96,7 +96,7 @@ for (let BOT_N in Object.keys(a)) {
     );
     console.log(BOT_N_DATA_2_NODE);
 
-    let BOT_N_DATA_3_PM2 = `pm2 start ${BOT_N_PATH_1_ECOSYSTEM} --name ${BOT_N_NAME}`
+    let BOT_N_DATA_3_PM2 = `pm2 start ${BOT_N_PATH_1_ECOSYSTEM} --name ${BOT_N_NAME} -f`
     let BOT_N_PATH_3_PM2 = `${CONFIG_BOT_RUN}/${BOT_N}_${BOT_N_NAME}_PM2.sh`
 
     fs.writeFileSync(
