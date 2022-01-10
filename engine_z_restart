@@ -11,7 +11,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source "$SCRIPT_DIR/engine_redeploy_scripts"
 
 # ─────────────────────────────────
-# stop pm2, ONLY IN CASE USER WANTS IT
+# restart
 # ─────────────────────────────────
 
 restart_1="0"
@@ -50,22 +50,18 @@ if [ "${restart_1}" -eq "1" ] ; then
     pm2 stop all
 
     echo "All pm2 bots has been stopped."
-    echo "Now starting a new set of pm2 bots as configured."
+    echo "Now trying to start a new set of pm2 bots as configured..."
     
     SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
     source "$SCRIPT_DIR/engine_z_start"
 
-    echo "Starting the new configure set of pm2 bots has finished."
+    echo "The try to start the new configured set of pm2 bots has finished."
+    echo "See for absense of errors above to check if the starting process has been successful."
     echo "◼︎"
 
   fi
 
 fi
-
-# ─────────────────────────────────
-# restart_1
-# ─────────────────────────────────
-
 
 # ─────────────────────────────────
 # finish
