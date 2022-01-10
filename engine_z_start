@@ -17,7 +17,7 @@ source "$SCRIPT_DIR/engine_redeploy_scripts"
 bots_to_run="$(ls $SCRIPT_DIR/engine_run/*PM2.sh)"
 
 for bot_n in "${bots_to_run[@]}"; do
-  source "$SCRIPT_DIR/engine_run/$bot_n"
+  source "$bot_n"
 done
 
 # ─────────────────────────────────
