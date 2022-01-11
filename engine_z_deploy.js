@@ -67,15 +67,18 @@ for (let BOT_N in Object.keys(a)) {
     bots_to_export[BOT_N] = {
         script : BOT_N_PATH_TO_INDEX_JS,
         name   : BOT_N_NAME,
-        args   : `${BOT_N_NAME}`,
+        args   : BOT_N_NAME,
     };
 
     console.log(`JSON.stringify(bots_to_export[BOT_N])`);
     console.log(JSON.stringify(bots_to_export[BOT_N]));
 
+    // ${JSON.stringify(bots_to_export[BOT_N])}
     let BOT_N_DATA_1_ECOSYSTEM = `module.exports = {
         apps : [
-            ${JSON.stringify(bots_to_export[BOT_N])}
+            script : ${bots_to_export[BOT_N].script},
+            name   : ${bots_to_export[BOT_N].name},
+            args   : ${bots_to_export[BOT_N].args}
         ]
     }`;
 
