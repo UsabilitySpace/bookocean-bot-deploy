@@ -86,7 +86,7 @@ else
       echo "CLEARING BOT ENGINE FINISHED."
 
       SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-      source $SCRIPT_DIR/engine_create
+      source $SCRIPT_DIR/engine_create 1
 
     fi
     
