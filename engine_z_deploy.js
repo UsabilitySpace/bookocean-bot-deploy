@@ -81,8 +81,7 @@ for (let BOT_N in Object.keys(a)) {
             args   : "${bots_to_export[BOT_N].args}"
         }]
     }`;
-
-    let BOT_N_PATH_1_ECOSYSTEM = `${CONFIG_BOT_RUN}/${BOT_N}_${BOT_N_NAME}_ECOSYSTEM.js`;
+    let BOT_N_PATH_1_ECOSYSTEM = `${CONFIG_BOT_RUN}/${BOT_N}_${BOT_N_NAME}_ECOSYSTEM.config.js`;
 
     fs.writeFileSync(
         BOT_N_PATH_1_ECOSYSTEM,
