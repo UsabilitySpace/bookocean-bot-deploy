@@ -184,8 +184,8 @@ function re(){
   2
   git pull
   3
-  engine_z_deploy
-  engine_z_start
+  . engine_z_deploy
+  . engine_z_start
   cd $curdir
 }
 
