@@ -168,6 +168,15 @@ ALIAS r44="curdir=$PWD ; 44 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 ALIAS r55="curdir=$PWD ; 55 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 
 ALIAS r="r00 ; r11 ; r22 ; r33 ; r44 ; r55"
+ALIAS rr="
+pm2 delete all
+00; pm2 start index.js
+11; pm2 start index.js
+22; pm2 start index.js
+33; pm2 start index.js
+44; pm2 start index.js
+55; pm2 start index.js
+"
 
 # %
 
