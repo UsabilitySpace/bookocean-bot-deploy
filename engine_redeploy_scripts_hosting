@@ -178,6 +178,8 @@ pm2 delete all
 55; pm2 start index.js
 "
 
+# rm reaction.r ; s ; rm reaction.r ; s ;rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ;
+
 # %
 
 # ──────────────────────────────────────────────────────────────────
