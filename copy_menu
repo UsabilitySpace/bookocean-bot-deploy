@@ -1,0 +1,21 @@
+function update_menu(){
+  BASE_1="/var/www/www-root/data/nodejs/server"
+  BASE_2="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu"
+  DIR_1="$BASE_1/$1/project"
+  DIR_2="$BASE_2/$2"
+  rm -rf DIR_2
+  cp DIR_1/. DIR_2
+}
+
+update_menu bookocean-bot/bookocean-bot-developer-hosting-regru             bookocean-bot-developer-hosting-regru
+update_menu bookocean-bot/bookocean-bot-production-hosting-regru            bookocean-bot-production-hosting-regru
+update_menu bookocean-bot/bookocean-bot-user-hosting-regru                  bookocean-bot-user-hosting-regru
+update_menu bookocean-bot/bookocean-bot-user-hosting-regru-0000-1802660270  bookocean-bot-user-hosting-regru-0000-1802660270
+update_menu client-bot/client-bot-user-hosting-regru                        client-bot-user-hosting-regru
+update_menu sinar-bot/sinar-bot-telegramsites-hosting-regru                 sinar-bot-telegramsites-hosting-regru
+
+
+
+
+
+
