@@ -120,41 +120,6 @@ ALIAS a+="pm2 start all"
 ALIAS a-="pm2 stop all"
 ALIAS ar="pm2 restart all"
 ALIAS a-+="ar"
-ALIAS ar="cls ; pm2 delete all ; . engine_recreate ; _+"
-## ALIAS rr="ar"
-
-function plus(){
-  if [ -z "$1" ] ; then
-    pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
-  else
-    $1
-    pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
-  fi
-}
-ALIAS "_+"="plus"
-
-function minus(){
-  if [ -z "$1" ] ; then
-    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
-  else
-    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
-  fi
-}
-ALIAS "_-"="minus"
-
-function minus_plus(){
-  if [ -z "$1" ] ; then
-    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
-  else
-    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
-  fi
-}
-ALIAS "_-+"="minus_plus"
-ALIAS _r="minus_plus"
-
-# _+
-# _-
-# _-+
 
 # ----------------------------------------------------------------------------
 # NEW
@@ -180,7 +145,7 @@ ALIAS m='4'
 
 ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
 
-function r(){
+function plus(){
   curdir=$PWD
   cls
   export DONT_REDEPLOY="1"
@@ -192,6 +157,30 @@ function r(){
   export DONT_CLS=""
   export DONT_LL=""
   export DONT_LL=""
+}
+ALIAS "_+"="plus"
+
+function minus(){
+  if [ -z "$1" ] ; then
+    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
+  else
+    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
+  fi
+}
+ALIAS "_-"="minus"
+
+function minus_plus(){
+  if [ -z "$1" ] ; then
+    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
+  else
+    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
+  fi
+}
+ALIAS "_-+"="minus_plus"
+ALIAS _r="minus_plus"
+
+function r(){
+  plus $1
 }
 
 function rr(){
