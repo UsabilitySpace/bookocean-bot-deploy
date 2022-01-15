@@ -13,7 +13,7 @@ function all_subsubdirs_of_subdir(){
   done
 }
 
-function sed_menu(){
+function sed_menus(){
 
   SEARCH='require\(\"../project/___all.\*.js\"\)'
   REPLACE='require\(\"../../bot/___all.\*.js\"\)'
@@ -40,7 +40,7 @@ function sed_menu(){
 
 }
 
-sed_menu
+sed_menus
 node engine_z_deploy.js
 
 # ─────────────────────────────────
