@@ -195,7 +195,7 @@ function plus(){
     sed_menus
     pm2 start all
     pm2 save
-    echo "ALL BOTS HAVE BEEN SUCCESSFULLY STARTED"
+    echo "ALL BOTS HAS BEEN SUCCESSFULLY STARTED"
   else
     BOTS_TO_RUN=($bots_to_run)
     echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
@@ -207,7 +207,7 @@ function plus(){
       echo "STARTING BOT $BOT"
       pm2 start $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STARTED"
+      echo "BOT $BOT HAS BEEN SUCCESSFULLY STARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
       echo "STARTING BOT BY INDEX..."
@@ -216,7 +216,7 @@ function plus(){
       echo "STARTING BOT $BOT"
       pm2 start $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STARTED"
+      echo "BOT $BOT HAS BEEN SUCCESSFULLY STARTED"
     else
       echo "STARTING BOT..."
       echo "THERE'S NO SUCH BOT: $1"
@@ -241,7 +241,7 @@ function minus(){
     echo "STOPPING BOTS..."
     sed_menus
     pm2 start all
-    echo "ALL BOTS HAVE BEEN SUCCESSFULLY STOPPED"
+    echo "ALL BOTS HAS BEEN SUCCESSFULLY STOPPED"
   else
     BOTS_TO_RUN=($bots_to_run)
     echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
@@ -253,7 +253,7 @@ function minus(){
       echo "STOPPING BOT $BOT"
       pm2 stop $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STOPPED"
+      echo "BOT $BOT HAS BEEN SUCCESSFULLY STOPPED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
       echo "STOPPING BOT BY INDEX..."
@@ -262,7 +262,7 @@ function minus(){
       echo "STOPPING BOT $BOT"
       pm2 stop $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STOPPED"
+      echo "BOT $BOT HAS BEEN SUCCESSFULLY STOPPED"
     else
       echo "STOPPING BOT..."
       echo "THERE'S NO SUCH BOT: $1"
@@ -287,7 +287,7 @@ function minus_plus(){
     echo "RESTARTING BOTS..."
     sed_menus
     pm2 start all
-    echo "ALL BOTS HAVE BEEN SUCCESSFULLY RESTARTED"
+    echo "ALL BOTS HAS BEEN SUCCESSFULLY RESTARTED"
   else
     BOTS_TO_RUN=($bots_to_run)
     # echo '${BOTS_TO_RUN[@]}' "${BOTS_TO_RUN[@]}"
@@ -300,7 +300,7 @@ function minus_plus(){
       echo "RESTARTING BOT $BOT"
       pm2 restart $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
+      echo "BOT $BOT HAS BEEN SUCCESSFULLY RESTARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
       echo "RESTARTING BOT BY INDEX..."
@@ -309,7 +309,7 @@ function minus_plus(){
       echo "RESTARTING BOT $BOT"
       pm2 restart $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
+      echo "BOT $BOT HAS BEEN SUCCESSFULLY RESTARTED"
     else
       echo "RESTARTING BOT..."
       echo "THERE'S NO SUCH BOT: $1"
