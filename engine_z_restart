@@ -14,7 +14,7 @@ if [ -z "$DONT_REDEPLOY" ] ; then
 
 fi
 
-if [ -z "$DONT_CLS" ] || [ -z "$1" ] ; then
+if [ -z "$DONT_CLS" ] && [ -z "$1" ] ; then
 
   cls
 
