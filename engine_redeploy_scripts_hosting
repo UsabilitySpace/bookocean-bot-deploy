@@ -120,11 +120,11 @@ ALIAS _r="minus_plus"
 # NEW
 # ----------------------------------------------------------------------------
 
-ALIAS 0='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine ; ll'
-ALIAS 1='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/bot ; ll'
-ALIAS 2='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config ; ll'
-ALIAS 3='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy ; ll'
-ALIAS 4='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu ; ll'
+ALIAS 0='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine ; if (-z "$DONT_LL") ; then ll ; fi'
+ALIAS 1='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/bot ; if (-z "$DONT_LL") ; then ll ; fi'
+ALIAS 2='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config ; if (-z "$DONT_LL") ; then ll ; fi'
+ALIAS 3='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy ; if (-z "$DONT_LL") ; then ll ; fi'
+ALIAS 4='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu ; if (-z "$DONT_LL") ; then ll ; fi'
 
 ALIAS @='0'
 ALIAS @@='1'
@@ -139,6 +139,23 @@ ALIAS d='3'
 ALIAS m='4'
 
 ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
+
+function rr(){
+  export DONT_PRE="1"
+  export DONT_LL="1"
+  curdir=$PWD
+  cls
+  2
+  git pull
+  3
+  . engine_redeploy_scripts
+  . engine_z_deploy
+  4
+  . engine_z_restart
+  cd $curdir
+  export DONT_PRE=""
+  export DONT_LL=""
+}
 
 @
 
@@ -168,19 +185,6 @@ ALIAS r44="curdir=$PWD ; 44 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 ALIAS r55="curdir=$PWD ; 55 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 
 ALIAS r="r00 ; r11 ; r22 ; r33 ; r44 ; r55"
-function rr(){
-  export DONT_PRE="1"
-  curdir=$PWD
-  cls
-  2
-  git pull
-  3
-  . engine_z_deploy
-  4
-  . engine_z_restart
-  cd $curdir
-  export DONT_PRE=""
-}
 
 # rm reaction.r ; s ; rm reaction.r ; s ;rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ;
 
