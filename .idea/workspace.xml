@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85a87b51-6aaf-40a1-80fa-c166da031b9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/engine_redeploy_scripts_hosting" beforeDir="false" afterPath="$PROJECT_DIR$/engine_redeploy_scripts_hosting" afterDir="false" />
-    </list>
+    <list default="true" id="85a87b51-6aaf-40a1-80fa-c166da031b9a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +56,7 @@
       <workItem from="1641856164098" duration="11818000" />
       <workItem from="1642004403158" duration="5506000" />
       <workItem from="1642237384539" duration="268000" />
-      <workItem from="1642237675445" duration="10623000" />
+      <workItem from="1642237675445" duration="11161000" />
     </task>
     <servers />
   </component>
