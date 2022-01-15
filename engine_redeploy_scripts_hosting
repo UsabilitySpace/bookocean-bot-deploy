@@ -186,7 +186,7 @@ function r(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
-  sed_menus > /dev/null
+  sed_menus
   pm2 restart all
   export DONT_REDEPLOY=""
   export DONT_CLS=""
