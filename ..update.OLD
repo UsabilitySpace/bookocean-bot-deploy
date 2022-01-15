@@ -47,7 +47,7 @@ cd $dir_cur
 
 # value added in all public files
 
-if [ "$1" -ne "1" ] ; then
+if [ -z "$1" ] ; then
 
   SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
   source "$SCRIPT_DIR/engine_redeploy_scripts"
