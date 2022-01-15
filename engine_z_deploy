@@ -1,6 +1,8 @@
 
 # deploys usability space bot engine
 
+curdir=$(PWD)
+
 # ─────────────────────────────────
 # deploy
 # ─────────────────────────────────
@@ -47,6 +49,6 @@ node engine_z_deploy.js
 # finish
 # ─────────────────────────────────
 
-# cd $curSUBDIR # OF NO NEED
+cd $curdir
 
 # must do nothing else ■
