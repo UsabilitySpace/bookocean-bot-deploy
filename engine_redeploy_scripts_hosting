@@ -179,6 +179,7 @@ function rr(){
   4
   . engine_z_restart
   cd $curdir
+  export DONT_PRE=""
 }
 
 # rm reaction.r ; s ; rm reaction.r ; s ;rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ;
