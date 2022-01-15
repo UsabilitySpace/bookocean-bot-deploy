@@ -79,9 +79,7 @@ bots_to_run(){
   BOTS_TO_RUN=($(ls "*config.js"))
   # echo "$BOTS_TO_RUN"
   for i in ${!BOTS_TO_RUN[@]} ; do
-    echo $i:
     e="${BOTS_TO_RUN[i]}"
-    echo $e
     e="${e:${PREF_LEN}}"
     e="${e::-${POST_LEN}}"
     e="$(echo "$e" | sed -r 's/^[0-9]+_//')"
