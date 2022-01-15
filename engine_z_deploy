@@ -14,7 +14,10 @@ function sed_menu(){
 
     for MENU_FILE in `find $DIR_MENU/ -type f -name "*.js"`; do
       echo "sed'ing $MENU_FILE"
-      sed -i "s@$SEARCH_STRING@$REPLACE_STRING@" "$MENU_FILE"
+      cp "$MENU_FILE" "$MENU_FILE2"
+      sed -i "s@$SEARCH_STRING@$REPLACE_STRING@" "$MENU_FILE" > "$MENU_FILE2"
+      cp "$MENU_FILE2" "$MENU_FILE"
+      rm "$MENU_FILE2"
     done
 }
 
