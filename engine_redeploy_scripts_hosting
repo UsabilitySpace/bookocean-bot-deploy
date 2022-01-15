@@ -169,7 +169,9 @@ ALIAS r55="curdir=$PWD ; 55 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 
 ALIAS r="r00 ; r11 ; r22 ; r33 ; r44 ; r55"
 function rr(){
+  export DONT_PRE="1"
   curdir=$PWD
+  cls
   2
   git pull
   3
