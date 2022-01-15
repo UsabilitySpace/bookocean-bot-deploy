@@ -1,4 +1,23 @@
 
+# ─────────────────────────────────
+# prepare includes
+# ─────────────────────────────────
+
+if [ -z "$DONT_REDEPLOY" ] ; then
+
+  SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+  source "$SCRIPT_DIR/engine_redeploy_scripts"
+
+fi
+
+if [ -z "$DONT_CLS" ] ; then
+
+  cls
+
+fi
+
+# ─────────────────────────────────
+
 type_1="0"
 
 while [ "$type_1" -ne "1" ] && [ "$type_1" -ne "2" ] ; do
