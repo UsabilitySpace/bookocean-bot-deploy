@@ -170,14 +170,14 @@ bots_to_run(){
   POST="_ECOSYSTEM.config.js"
   PREF_LEN=${#PREF}
   POST_LEN=${#POST}
-  BOTS_TO_RUN="$(ls $RUN_DIR/*config.js)"
+  BOTS_TO_RUN=$(ls $RUN_DIR/*config.js)
   for i in ${!BOTS_TO_RUN[@]} ; do
     e="${BOTS_TO_RUN[i]}"
     e="${e:${PREF_LEN}}"
-    e="${e::-${POST_LEN}}"
+    e="${e::${POST_LEN}}"
     BOTS_TO_RUN[i]="$e"
+    echo $e
   done
-  echo $BOTS_TO_RUN
   cd "$curdir"
 }
 
@@ -386,4 +386,3 @@ ALIAS r55="curdir=$PWD ; 55 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 # ALIAS c0s="c ; 00 ; 00- ; s"
 # ALIAS c5s="c ; 55 ; 55- ; s"
 
-}
