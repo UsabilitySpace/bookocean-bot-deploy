@@ -165,13 +165,14 @@ function plus(){
     export DONT_CLS="1"
     export DONT_LL="1"
     sed_menus
-    bots_to_run="$(ls /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/*config.js)"
-    if [[ " ${bots_to_run[@]} " =~ " ${$1} " ]]; then
+    RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
+    bots_to_run="$(ls $RUN_DIR/*config.js)"
+    if [[ " ${bots_to_run[@]} " =~ " ${1} " ]]; then
       BOT="$1"
     else
       BOT="${bots_to_run[$1]}"
     fi
-    pm2 start $BOT
+    pm2 start $RUN_DIR/$BOT
     export DONT_REDEPLOY=""
     export DONT_CLS=""
     export DONT_LL=""
