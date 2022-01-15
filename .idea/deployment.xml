@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="usability-space-bot-engine-deploy" overwriteAll="false" preserveTimestamps="false" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="usability-space-bot-engine-deploy" overwriteAll="false" preserveTimestamps="false" deleteMissingItems="true" autoUploadExternalChanges="true">
     <serverData>
       <paths name="usability-space-bot-engine-deploy">
         <serverdata>
