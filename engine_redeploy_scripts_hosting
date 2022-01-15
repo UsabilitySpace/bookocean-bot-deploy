@@ -176,20 +176,19 @@ function plus(){
     if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
       sed_menus
       BOT="$1"
-      echo "RESTARTIN BOT $BOT"
+      echo "TARTING BOT $BOT"
       pm2 start $BOT
       pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
     elif [ -n "${bots_to_run[$1]}" ]; then
       sed_menus
       BOT="${bots_to_run[$1]}"
-      echo "RESTARTIN BOT $BOT"
+      echo "STARTIN BOT $BOT"
       pm2 start $BOT
       pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
     else
-      echo 333
-      echo "THERE'S NO SUCH BOT: $BOT"
+      echo "THERE'S NO SUCH BOT: $1"
       echo "NO BOTS HAS STARTED"
     fi
   fi
