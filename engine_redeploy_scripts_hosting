@@ -166,7 +166,17 @@ bots_to_run(){
   curdir="$PWD"
   RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
   cd "$RUN_DIR"
+  PREF="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/"
+  POST="_ECOSYSTEM.config.js"
+  PREF_LEN=${#PREF}
+  POST_LEN=${#POST}
   BOTS_TO_RUN="$(ls $RUN_DIR/*config.js)"
+  for i in ${!BOTS_TO_RUN[@]} ; do
+    e="${BOTS_TO_RUN[i]}"
+    e="${e:${PREF_LEN}}"
+    e="${e::-${POST_LEN}}"
+    BOTS_TO_RUN[i]="$e"
+  done
   echo $BOTS_TO_RUN
   cd "$curdir"
 }
@@ -184,7 +194,6 @@ function plus(){
     pm2 save
     echo "ALL BOTS HAVE BEEN SUCCESSFULLY STARTED"
   else
-    RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
     BOTS_TO_RUN=($bots_to_run)
     echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
@@ -231,7 +240,6 @@ function minus(){
     pm2 start all
     echo "ALL BOTS HAVE BEEN SUCCESSFULLY STOPPED"
   else
-    RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
     BOTS_TO_RUN=($bots_to_run)
     echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
@@ -278,7 +286,6 @@ function minus_plus(){
     pm2 start all
     echo "ALL BOTS HAVE BEEN SUCCESSFULLY RESTARTED"
   else
-    RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
     BOTS_TO_RUN=($bots_to_run)
     # echo '${BOTS_TO_RUN[@]}' "${BOTS_TO_RUN[@]}"
     # echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
