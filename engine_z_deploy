@@ -23,6 +23,8 @@ curdir=$(PWD)
 
 sed_menus
 node engine_z_deploy.js
+cd /var/www/www-root/data/nodejs/server/
+chown -R www-root:www-root *
 
 # ─────────────────────────────────
 # finish

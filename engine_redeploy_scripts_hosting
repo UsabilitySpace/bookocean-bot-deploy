@@ -68,6 +68,7 @@ function sed_menus(){
 }
 
 bots_to_run(){
+  echo 1111111111111111111111111
   curdir="$PWD"
   RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
   PREF="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/"
@@ -75,7 +76,7 @@ bots_to_run(){
   PREF_LEN=${#PREF}
   POST_LEN=${#POST}
   cd $RUN_DIR
-  BOTS_TO_RUN=($(ls "*config.js"))
+  BOTS_TO_RUN=($(ls *config.js))
   # echo "$BOTS_TO_RUN"
   for i in ${!BOTS_TO_RUN[@]} ; do
     e="${BOTS_TO_RUN[i]}"
@@ -84,7 +85,8 @@ bots_to_run(){
     e="$(echo "$e" | sed -r 's/^[0-9]+_//')"
     BOTS_TO_RUN[i]="$e"
   done
-  echo "${BOTS_TO_RUN[@]}"
+  # echo "${BOTS_TO_RUN[@]}"
+  echo aaa
   cd "$curdir"
 }
 
@@ -294,7 +296,6 @@ function minus_plus(){
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
-      echo "$BOTS_TO_RUN"
       echo "RESTARTING BOT BY NAME..."
       sed_menus
       BOT="$1"
@@ -305,6 +306,7 @@ function minus_plus(){
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
+      echo "$BOTS_TO_RUN"
       echo "RESTARTING BOT BY INDEX..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
