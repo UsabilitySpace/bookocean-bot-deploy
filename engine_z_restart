@@ -10,7 +10,7 @@
 if [ -z "$DONT_PRE" ] ; then
 
   SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-  export DONT_PRE="1" ; source "$SCRIPT_DIR/engine_redeploy_scripts"
+  export DONT_PRE="1" ; source "$SCRIPT_DIR/engine_redeploy_scripts" ; export DONT_PRE=""
 
   cls
 
@@ -60,7 +60,7 @@ if [ "${restart_1}" -eq "1" ] ; then
     echo "Now trying to start a new set of pm2 bots as configured..."
     
     SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-    export DONT_PRE="1" ; source "$SCRIPT_DIR/engine_z_start"
+    export DONT_PRE="1" ; source "$SCRIPT_DIR/engine_z_start" ; export DONT_PRE=""
 
     echo "The try to start the new configured set of pm2 bots has finished."
     echo "See for absense of errors above to check if the starting process has been successful."
