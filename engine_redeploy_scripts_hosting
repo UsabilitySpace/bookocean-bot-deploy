@@ -120,11 +120,11 @@ ALIAS _r="minus_plus"
 # NEW
 # ----------------------------------------------------------------------------
 
-ALIAS 0='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine ; if (-z "$DONT_LL") ; then ll ; fi'
-ALIAS 1='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/bot ; if (-z "$DONT_LL") ; then ll ; fi'
-ALIAS 2='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config ; if (-z "$DONT_LL") ; then ll ; fi'
-ALIAS 3='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy ; if (-z "$DONT_LL") ; then ll ; fi'
-ALIAS 4='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu ; if (-z "$DONT_LL") ; then ll ; fi'
+ALIAS 0='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine ; if [ -z "$DONT_LL" ] ; then ll ; fi'
+ALIAS 1='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/bot ; if [ -z "$DONT_LL" ] ; then ll ; fi'
+ALIAS 2='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config ; if [ -z "$DONT_LL" ] ; then ll ; fi'
+ALIAS 3='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy ; if [ -z "$DONT_LL" ] ; then ll ; fi'
+ALIAS 4='cd /var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu ; if [ -z "$DONT_LL" ] ; then ll ; fi'
 
 ALIAS @='0'
 ALIAS @@='1'
