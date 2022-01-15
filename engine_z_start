@@ -18,15 +18,10 @@ fi
 # run
 # ─────────────────────────────────
 
-echo 111
 echo $SCRIPT_DIR
-echo 111
 bots_to_run="$(ls $SCRIPT_DIR/engine_run/*PM2.sh)"
-echo 222
 echo $bots_to_run
-echo 333
 ls $SCRIPT_DIR/engine_run/*PM2.sh
-echo 4441
 
 # for bot_n in "${bots_to_run[@]}"; do
 for bot_n in $SCRIPT_DIR/engine_run/*PM2.sh; do
