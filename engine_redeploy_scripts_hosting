@@ -162,32 +162,38 @@ function array_contains() {
 
 function plus(){
   curdir=$PWD
-  cls
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
   if [ -z "$1" ] ; then
+    cls
+    echo "STARTING BOTS..."
     sed_menus
     pm2 start all
-    echo "ALL BOTS HAVE BEEN SUCCESSFULLY RESTARTED"
+    echo "ALL BOTS HAVE BEEN SUCCESSFULLY STARTED"
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
     if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
+      cls
+      echo "STARTING BOTS..."
       sed_menus
       BOT="$1"
-      echo "TARTING BOT $BOT"
+      echo "STARTING BOT $BOT"
       pm2 start $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
+      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STARTED"
     elif [ -n "${bots_to_run[$1]}" ]; then
+      cls
+      echo "STARTING BOTS..."
       sed_menus
       BOT="${bots_to_run[$1]}"
-      echo "STARTIN BOT $BOT"
+      echo "STARTING BOT $BOT"
       pm2 start $BOT
       pm2 save
-      echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
+      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STARTED"
     else
+      echo "STARTING BOTS..."
       echo "THERE'S NO SUCH BOT: $1"
       echo "NO BOTS HAS STARTED"
     fi
@@ -201,20 +207,94 @@ function plus(){
 ALIAS "_+"="plus"
 
 function minus(){
+  curdir=$PWD
+  export DONT_REDEPLOY="1"
+  export DONT_CLS="1"
+  export DONT_LL="1"
   if [ -z "$1" ] ; then
-    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
+    cls
+    echo "STOPPING BOTS..."
+    sed_menus
+    pm2 start all
+    echo "ALL BOTS HAVE BEEN SUCCESSFULLY STOPPED"
   else
-    pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
+    RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
+    bots_to_run="$(ls $RUN_DIR/*config.js)"
+    if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
+      cls
+      echo "STOPPING BOTS..."
+      sed_menus
+      BOT="$1"
+      echo "STOPPING BOT $BOT"
+      pm2 start $BOT
+      pm2 save
+      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STOPPED"
+    elif [ -n "${bots_to_run[$1]}" ]; then
+      cls
+      echo "STOPPING BOTS..."
+      sed_menus
+      BOT="${bots_to_run[$1]}"
+      echo "STOPPING BOT $BOT"
+      pm2 start $BOT
+      pm2 save
+      echo "BOT $BOT HAVE BEEN SUCCESSFULLY STOPPED"
+    else
+      echo "STOPPING BOTS..."
+      echo "THERE'S NO SUCH BOT: $1"
+      echo "NO BOTS HAS STOPPED"
+    fi
   fi
+  cd $curdir
+  export DONT_REDEPLOY=""
+  export DONT_CLS=""
+  export DONT_LL=""
+  export DONT_LL=""
 }
 ALIAS "_-"="minus"
 
 function minus_plus(){
+  curdir=$PWD
+  export DONT_REDEPLOY="1"
+  export DONT_CLS="1"
+  export DONT_LL="1"
   if [ -z "$1" ] ; then
-    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
+    cls
+    echo "RESTARTING BOTS..."
+    sed_menus
+    pm2 start all
+    echo "ALL BOTS HAVE BEEN SUCCESSFULLY RESTARTED"
   else
-    pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
+    RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
+    bots_to_run="$(ls $RUN_DIR/*config.js)"
+    if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
+      cls
+      echo "RESTARTING BOTS..."
+      sed_menus
+      BOT="$1"
+      echo "STARTING BOT $BOT"
+      pm2 start $BOT
+      pm2 save
+      echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
+    elif [ -n "${bots_to_run[$1]}" ]; then
+      cls
+      echo "RESTARTING BOTS..."
+      sed_menus
+      BOT="${bots_to_run[$1]}"
+      echo "STARTING BOT $BOT"
+      pm2 start $BOT
+      pm2 save
+      echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
+    else
+      echo "RESTARTING BOTS..."
+      echo "THERE'S NO SUCH BOT: $1"
+      echo "NO BOTS HAS STARTED"
+    fi
   fi
+  cd $curdir
+  export DONT_REDEPLOY=""
+  export DONT_CLS=""
+  export DONT_LL=""
+  export DONT_LL=""
 }
 ALIAS "_-+"="minus_plus"
 ALIAS _r="minus_plus"
