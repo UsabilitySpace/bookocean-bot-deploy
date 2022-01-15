@@ -209,9 +209,12 @@ function plus(){
 ALIAS "_+"="plus"
 
 bots_to_run(){
+  curdir="$PWD"
   RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
-  BOTS_TO_RUN="$(ls $RUN_DIR/*config.js)"
+  cd "$RUN_DIR"
+  BOTS_TO_RUN="$(ls *config.js)"
   echo $BOTS_TO_RUN
+  cd "$curdir"
 }
 
 function minus(){
