@@ -52,6 +52,8 @@ if [ -z "$1" ] ; then
   SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
   source "$SCRIPT_DIR/engine_redeploy_scripts"
 
+  cls
+
 fi
 
 # ─────────────────────────────────
