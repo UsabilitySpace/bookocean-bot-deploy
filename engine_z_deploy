@@ -26,7 +26,7 @@ function sed_menu(){
     for FILE in $DIR/$SIBDIR/*.js; do
       echo "sed'ing $FILE"
       cp "$FILE" "${FILE}2"
-      sed -i "s@$SEARCH@$REPLACE@" "$FILE" > "${FILE}2"
+      sed "s@$SEARCH@$REPLACE@" "$FILE" > "${FILE}2"
       cp "${FILE}2" "$FILE"
       rm "${FILE}2"
     done
