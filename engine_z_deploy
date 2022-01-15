@@ -30,8 +30,8 @@ function sed_menus(){
       rm "${FILE}2" > null
       EVAL=$(echo \sed "s@${SEARCH}@${REPLACE}@" "${FILE}" \> "${FILE}2")
       eval $EVAL
-      # cp "${FILE}2" "${FILE}"
-      # rm "${FILE}2"
+      cp "${FILE}2" "${FILE}"
+      rm "${FILE}2"
     done
 
     # echo "FINISHED SEDDING FOR BOT MENU $SUBDIR."
