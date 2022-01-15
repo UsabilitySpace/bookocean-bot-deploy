@@ -165,7 +165,6 @@ function plus(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
-  echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
   if [ -z "$1" ] ; then
     cls
     echo "STARTING BOTS..."
@@ -176,6 +175,7 @@ function plus(){
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
+    echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
     if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
       cls
       echo "STARTING BOTS..."
@@ -213,7 +213,6 @@ function minus(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
-  echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
   if [ -z "$1" ] ; then
     cls
     echo "STOPPING BOTS..."
@@ -223,6 +222,7 @@ function minus(){
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
+    echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
     if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
       cls
       echo "STOPPING BOTS..."
@@ -260,7 +260,6 @@ function minus_plus(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
-  echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
   if [ -z "$1" ] ; then
     cls
     echo "RESTARTING BOTS..."
@@ -270,6 +269,7 @@ function minus_plus(){
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
+    echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
     if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
       cls
       echo "RESTARTING BOTS..."
