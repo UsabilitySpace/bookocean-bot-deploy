@@ -159,12 +159,12 @@ function plus(){
     sed_menus
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
-    if [[ "###${bots_to_run[@]}###" =~ "###${1}###" ]]; then
-      BOT="$1"
+    if [ -n "${bots_to_run[$BOT]}" ]; then
+      BOT="${bots_to_run[$1]}"
       pm2 start $BOT
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
-    elif [ -n "${bots_to_run[$BOT]}" ]; then
-      BOT="${bots_to_run[$1]}"
+    elif [[ "###${bots_to_run[@]}###" =~ "###${1}###" ]]; then
+      BOT="$1"
       pm2 start $BOT
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
     else
