@@ -68,16 +68,15 @@ function sed_menus(){
 }
 
 bots_to_run(){
-  echo 1111111111111111111111111
   curdir="$PWD"
   RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
-  PREF="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/"
+  # PREF="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/"
+  PREF=""
   POST="_ECOSYSTEM.config.js"
   PREF_LEN=${#PREF}
   POST_LEN=${#POST}
   cd $RUN_DIR
   BOTS_TO_RUN=($(ls *config.js))
-  # echo "$BOTS_TO_RUN"
   for i in ${!BOTS_TO_RUN[@]} ; do
     e="${BOTS_TO_RUN[i]}"
     e="${e:${PREF_LEN}}"
@@ -85,8 +84,7 @@ bots_to_run(){
     e="$(echo "$e" | sed -r 's/^[0-9]+_//')"
     BOTS_TO_RUN[i]="$e"
   done
-  # echo "${BOTS_TO_RUN[@]}"
-  echo aaa
+  echo "${BOTS_TO_RUN[@]}"
   cd "$curdir"
 }
 
@@ -191,38 +189,34 @@ function plus(){
   export DONT_CLS="1"
   export DONT_LL="1"
   if [ -z "$1" ] ; then
-    # cls
-    echo "STARTING BOTS..."
+    cls
     sed_menus
+        echo "STARTING ALL BOTS..."
     pm2 start all
     pm2 save
     echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO ALL BOTS"
   else
-    BOTS_TO_RUN=($bots_to_run)
+    BOTS_TO_RUN=$(bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
-      # cls
-      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
-      echo "STARTING BOT BY NAME..."
+      cls
       sed_menus
       BOT="$1"
-      echo "STARTING BOT $BOT"
+      echo "STARTING BOT BY NAME: $BOT"
       pm2 start $BOT
       pm2 save
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
-      # cls
-      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
-      echo "STARTING BOT BY INDEX..."
+      cls
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
-      echo "STARTING BOT $BOT"
+      echo "STARTING BOT BY INDEX: $BOT"
       pm2 start $BOT
       pm2 save
       echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
     else
-      echo "STARTING BOT..."
-      echo "THERE'S NO SUCH BOT: $1"
-      echo "NO BOTS HAS STARTED"
+      echo "SEEKING FOR A BOT TO START..."
+      echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
+      echo "NO BOTS HAS STARTED ◼︎"
     fi
   fi
   cd $curdir
@@ -239,37 +233,33 @@ function minus(){
   export DONT_CLS="1"
   export DONT_LL="1"
   if [ -z "$1" ] ; then
-    # cls
-    echo "STOPPING BOTS..."
+    cls
     sed_menus
+    echo "STOPPING ALL BOTS..."
     pm2 start all
     echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO ALL BOTS"
   else
-    BOTS_TO_RUN=($bots_to_run)
+    BOTS_TO_RUN=$(bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
-      # cls
-      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
-      echo "STOPPING BOT BY NAME..."
+      cls
       sed_menus
       BOT="$1"
-      echo "STOPPING BOT $BOT"
+      echo "STOPPING BOT BY NAME: $BOT"
       pm2 stop $BOT
       pm2 save
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STOPPED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
-      # cls
-      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
-      echo "STOPPING BOT BY INDEX..."
+      cls
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
-      echo "STOPPING BOT $BOT"
+      echo "STOPPING BOT BY INDEX: $BOT"
       pm2 stop $BOT
       pm2 save
       echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
     else
-      echo "STOPPING BOT..."
-      echo "THERE'S NO SUCH BOT: $1"
-      echo "NO BOTS HAS STOPPED"
+      echo "SEEKING FOR A BOT TO STOP..."
+      echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
+      echo "NO BOTS HAS STOPPED ◼︎"
     fi
   fi
   cd $curdir
@@ -286,38 +276,38 @@ function minus_plus(){
   export DONT_CLS="1"
   export DONT_LL="1"
   if [ -z "$1" ] ; then
-    # cls
-    echo "RESTARTING BOTS..."
+    cls
     sed_menus
+    echo "RESTARTING ALL BOTS..."
     pm2 start all
     echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO ALL BOTS"
   else
-    BOTS_TO_RUN=($bots_to_run)
+    echo "BOTS_TO_RUN=$(bots_to_run)"
+    BOTS_TO_RUN=$(bots_to_run)
+    echo "BOTS_TO_RUN=$(bots_to_run)"
+    bots_to_run
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
-      # cls
-      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
-      echo "RESTARTING BOT BY NAME..."
+      cls
+      # echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       sed_menus
       BOT="$1"
-      echo "RESTARTING BOT $BOT"
+      echo "RESTARTING BOT BY NAME: $BOT"
       pm2 restart $BOT
       pm2 save
       echo "BOT $BOT HAS BEEN SUCCESSFULLY RESTARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
-      # cls
-      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
-      echo "$BOTS_TO_RUN"
-      echo "RESTARTING BOT BY INDEX..."
+      cls
+      # echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
-      echo "RESTARTING BOT $BOT"
+      echo "RESTARTING BOT BY INDEX: $BOT"
       pm2 restart $BOT
       pm2 save
       echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
     else
-      echo "RESTARTING BOT..."
-      echo "THERE'S NO SUCH BOT: $1"
-      echo "NO BOTS HAS RESTARTED"
+      echo "SEEKING FOR A BOT TO RESTART..."
+      echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
+      echo "NO BOTS HAS RESTARTED ◼︎"
     fi
   fi
   cd $curdir
@@ -331,7 +321,7 @@ ALIAS r="minus_plus"
 
 function rr(){
   curdir=$PWD
-  # cls
+  cls
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
