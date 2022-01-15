@@ -141,7 +141,7 @@ ALIAS m='4'
 ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
 
 function rr(){
-  export DONT_PRE="1"
+  export DONT_CLS="1"
   export DONT_LL="1"
   curdir=$PWD
   cls
@@ -153,7 +153,7 @@ function rr(){
   4
   . engine_z_restart
   cd $curdir
-  export DONT_PRE=""
+  export DONT_CLS=""
   export DONT_LL=""
 }
 
