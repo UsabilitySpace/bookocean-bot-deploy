@@ -5,20 +5,36 @@
 # deploy
 # ─────────────────────────────────
 
+function all_subsubdirs_of_subdir(){
+  DIR=$1
+  for SUBDIR in $DIR/*/; do
+      SUBDIR=${SUBDIR%*/}
+      echo ${SUBDIR##*/}
+  done
+}
+
 function sed_menu(){
 
-  DIR_MENU="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu"
+  SEARCH='require\(\"../project/___all.*.js\"\)'
+  REPLACE='require\(\"../../bot/___all.*.js\"\)'
 
-  SEARCH_STRING='require\(\"../project/___all.*.js\"\)'
-  REPLACE_STRING='require\(\"../../bot/___all.*.js\"\)'
+  DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu"
+  for SUBDIR in $(all_subsubdirs_of_subdir $DIR); do
 
-    for MENU_FILE in `find $DIR_MENU/ -type f -name "*.js"`; do
-      echo "sed'ing $MENU_FILE"
-      cp "$MENU_FILE" "$MENU_FILE2"
-      sed -i "s@$SEARCH_STRING@$REPLACE_STRING@" "$MENU_FILE" > "$MENU_FILE2"
-      cp "$MENU_FILE2" "$MENU_FILE"
-      rm "$MENU_FILE2"
+    echo "STARTING SEDDING FOR BOT MENU $SUBDIR:"
+
+    for FILE in $DIR/$SIBDIR/*.js; do
+      echo "sed'ing $FILE"
+      cp "$FILE" "${FILE}2"
+      sed -i "s@$SEARCH@$REPLACE@" "$FILE" > "${FILE}2"
+      cp "${FILE}2" "$FILE"
+      rm "${FILE}2"
     done
+
+    echo "FINISHED SEDDING FOR BOT MENU $SUBDIR."
+
+  done
+
 }
 
 sed_menu
@@ -28,6 +44,6 @@ node engine_z_deploy.js
 # finish
 # ─────────────────────────────────
 
-# cd $curdir # OF NO NEED
+# cd $curSUBDIR # OF NO NEED
 
 # must do nothing else ■
