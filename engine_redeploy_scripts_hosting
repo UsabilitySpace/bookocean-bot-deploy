@@ -160,8 +160,6 @@ function array_contains() {
     return 0
 }
 
-bots_to_run=""
-
 function plus(){
   curdir=$PWD
   cls
@@ -175,20 +173,19 @@ function plus(){
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
-    echo $bots_to_run
-    echo '$(array_contains bots_to_run $1)' $(array_contains bots_to_run $1)
     if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
-    # if [[ "###/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/0_bookocean-bot-developer-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/1_bookocean-bot-production-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/2_bookocean-bot-user-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/3_bookocean-bot-user-hosting-regru-0000-1802660270_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/4_client-bot-user-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/5_sinar-bot-telegramsites-hosting-regru_ECOSYSTEM.config.js###" =~ "###55###" ]]; then
-      # sed_menus
-      echo 111
+      sed_menus
       BOT="$1"
+      echo "RESTARTIN BOT $BOT"
       pm2 start $BOT
+      pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
-    elif [ -n "${bots_to_run[$BOT]}" ]; then
-      # sed_menus
-      echo 222
+    elif [ -n "${bots_to_run[$1]}" ]; then
+      sed_menus
       BOT="${bots_to_run[$1]}"
+      echo "RESTARTIN BOT $BOT"
       pm2 start $BOT
+      pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
     else
       echo 333
@@ -201,7 +198,6 @@ function plus(){
   export DONT_CLS=""
   export DONT_LL=""
   export DONT_LL=""
-  pm2 save
 }
 ALIAS "_+"="plus"
 
