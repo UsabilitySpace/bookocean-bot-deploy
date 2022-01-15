@@ -85,7 +85,7 @@ ALIAS ar="cls ; pm2 delete all ; . engine_recreate ; _+"
 ## ALIAS rr="ar"
 
 function plus(){
-  if [ -z "$1" ] ; then
+  if [ -z "$DONT_PRE" ] ; then
     pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
     pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
@@ -94,7 +94,7 @@ function plus(){
 ALIAS "_+"="plus"
 
 function minus(){
-  if [ -z "$1" ] ; then
+  if [ -z "$DONT_PRE" ] ; then
     pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
     pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
@@ -103,7 +103,7 @@ function minus(){
 ALIAS "_-"="minus"
 
 function minus_plus(){
-  if [ -z "$1" ] ; then
+  if [ -z "$DONT_PRE" ] ; then
     pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
     pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
