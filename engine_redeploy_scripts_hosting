@@ -170,6 +170,7 @@ function plus(){
     echo "STARTING BOTS..."
     sed_menus
     pm2 start all
+    pm2 save
     echo "ALL BOTS HAVE BEEN SUCCESSFULLY STARTED"
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
