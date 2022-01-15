@@ -171,6 +171,7 @@ bots_to_run(){
   PREF_LEN=${#PREF}
   POST_LEN=${#POST}
   BOTS_TO_RUN=($(ls $RUN_DIR/*config.js))
+  echo "$BOTS_TO_RUN"
   for i in ${!BOTS_TO_RUN[@]} ; do
     echo $i:
     e="${BOTS_TO_RUN[i]}"
@@ -195,7 +196,7 @@ function plus(){
     sed_menus
     pm2 start all
     pm2 save
-    echo "ALL BOTS HAS BEEN SUCCESSFULLY STARTED"
+    echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO ALL BOTS"
   else
     BOTS_TO_RUN=($bots_to_run)
     echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
@@ -216,7 +217,7 @@ function plus(){
       echo "STARTING BOT $BOT"
       pm2 start $BOT
       pm2 save
-      echo "BOT $BOT HAS BEEN SUCCESSFULLY STARTED"
+      echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
     else
       echo "STARTING BOT..."
       echo "THERE'S NO SUCH BOT: $1"
@@ -241,7 +242,7 @@ function minus(){
     echo "STOPPING BOTS..."
     sed_menus
     pm2 start all
-    echo "ALL BOTS HAS BEEN SUCCESSFULLY STOPPED"
+    echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO ALL BOTS"
   else
     BOTS_TO_RUN=($bots_to_run)
     echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
@@ -262,7 +263,7 @@ function minus(){
       echo "STOPPING BOT $BOT"
       pm2 stop $BOT
       pm2 save
-      echo "BOT $BOT HAS BEEN SUCCESSFULLY STOPPED"
+      echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
     else
       echo "STOPPING BOT..."
       echo "THERE'S NO SUCH BOT: $1"
@@ -287,7 +288,7 @@ function minus_plus(){
     echo "RESTARTING BOTS..."
     sed_menus
     pm2 start all
-    echo "ALL BOTS HAS BEEN SUCCESSFULLY RESTARTED"
+    echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO ALL BOTS"
   else
     BOTS_TO_RUN=($bots_to_run)
     # echo '${BOTS_TO_RUN[@]}' "${BOTS_TO_RUN[@]}"
@@ -309,7 +310,7 @@ function minus_plus(){
       echo "RESTARTING BOT $BOT"
       pm2 restart $BOT
       pm2 save
-      echo "BOT $BOT HAS BEEN SUCCESSFULLY RESTARTED"
+      echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
     else
       echo "RESTARTING BOT..."
       echo "THERE'S NO SUCH BOT: $1"
