@@ -232,7 +232,7 @@ function minus(){
     echo "ALL BOTS HAVE BEEN SUCCESSFULLY STOPPED"
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
-    BOTS_TO_RUN=($(ls $RUN_DIR/*config.js))
+    BOTS_TO_RUN=($bot)
     echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
