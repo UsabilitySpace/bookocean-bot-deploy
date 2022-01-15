@@ -70,7 +70,6 @@ function sed_menus(){
 bots_to_run(){
   curdir="$PWD"
   RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
-  cd "$RUN_DIR"
   PREF="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/"
   POST="_ECOSYSTEM.config.js"
   PREF_LEN=${#PREF}
@@ -84,8 +83,8 @@ bots_to_run(){
     e="${e::-${POST_LEN}}"
     e="$(echo "$e" | sed -r 's/^[0-9]+_//')"
     BOTS_TO_RUN[i]="$e"
-    echo $e
   done
+  echo "${BOTS_TO_RUN[@]}"
   cd "$curdir"
 }
 
@@ -200,7 +199,7 @@ function plus(){
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
-      echo '${BOTS_TO_RUN}' ${BOTS_TO_RUN}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STARTING BOT BY NAME..."
       sed_menus
       BOT="$1"
@@ -210,7 +209,7 @@ function plus(){
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
-      echo '${BOTS_TO_RUN}' ${BOTS_TO_RUN}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STARTING BOT BY INDEX..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
@@ -247,7 +246,7 @@ function minus(){
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
-      echo '${BOTS_TO_RUN}' ${BOTS_TO_RUN}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STOPPING BOT BY NAME..."
       sed_menus
       BOT="$1"
@@ -257,7 +256,7 @@ function minus(){
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STOPPED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
-      echo '${BOTS_TO_RUN}' ${BOTS_TO_RUN}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STOPPING BOT BY INDEX..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
@@ -294,7 +293,8 @@ function minus_plus(){
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
-      echo '${BOTS_TO_RUN}' ${BOTS_TO_RUN}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
+      echo "$BOTS_TO_RUN"
       echo "RESTARTING BOT BY NAME..."
       sed_menus
       BOT="$1"
@@ -304,7 +304,7 @@ function minus_plus(){
       echo "BOT $BOT HAS BEEN SUCCESSFULLY RESTARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
-      echo '${BOTS_TO_RUN}' ${BOTS_TO_RUN}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "RESTARTING BOT BY INDEX..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
