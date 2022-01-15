@@ -170,11 +170,14 @@ bots_to_run(){
   POST="_ECOSYSTEM.config.js"
   PREF_LEN=${#PREF}
   POST_LEN=${#POST}
-  BOTS_TO_RUN=$(ls $RUN_DIR/*config.js)
+  BOTS_TO_RUN=($(ls $RUN_DIR/*config.js))
   for i in ${!BOTS_TO_RUN[@]} ; do
+    echo $i:
     e="${BOTS_TO_RUN[i]}"
+    echo $e
     e="${e:${PREF_LEN}}"
-    e="${e::${POST_LEN}}"
+    e="${e::-${POST_LEN}}"
+    e="$(echo "$e" | sed -r 's/^[0-9]+_//')"
     BOTS_TO_RUN[i]="$e"
     echo $e
   done
@@ -248,7 +251,7 @@ function minus(){
       sed_menus
       BOT="$1"
       echo "STOPPING BOT $BOT"
-      pm2 start $BOT
+      pm2 stop $BOT
       pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY STOPPED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
@@ -257,7 +260,7 @@ function minus(){
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
       echo "STOPPING BOT $BOT"
-      pm2 start $BOT
+      pm2 stop $BOT
       pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY STOPPED"
     else
@@ -294,8 +297,8 @@ function minus_plus(){
       echo "RESTARTING BOTS..."
       sed_menus
       BOT="$1"
-      echo "STARTING BOT $BOT"
-      pm2 start $BOT
+      echo "RESTARTING BOT $BOT"
+      pm2 restart $BOT
       pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
@@ -303,8 +306,8 @@ function minus_plus(){
       echo "RESTARTING BOTS..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
-      echo "STARTING BOT $BOT"
-      pm2 start $BOT
+      echo "RESTARTING BOT $BOT"
+      pm2 restart $BOT
       pm2 save
       echo "BOT $BOT HAVE BEEN SUCCESSFULLY RESTARTED"
     else
