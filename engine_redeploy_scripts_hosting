@@ -269,6 +269,7 @@ function minus_plus(){
   else
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
+    echo '${bots_to_run[@]}' "${bots_to_run[@]}"
     echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
     if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
       cls
