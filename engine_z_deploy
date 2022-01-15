@@ -31,7 +31,7 @@ function sed_menu(){
       rm "${FILE}2"
     done
 
-    echo "FINISHED SEDDING FOR BOT MENU $SUBDIR."
+    # echo "FINISHED SEDDING FOR BOT MENU $SUBDIR."
 
   done
 
