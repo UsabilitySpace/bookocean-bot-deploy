@@ -28,8 +28,8 @@ function sed_menus(){
       echo "${FILE}"
       echo "${FILE}2"
       rm "${FILE}2"
-      echo \sed "s@${SEARCH}@${REPLACE}@" "${FILE}" \> "${FILE}2"
-      sed "s@${SEARCH}@${REPLACE}@" "${FILE}" > "${FILE}2"
+      EVAL=$(echo \sed "s@${SEARCH}@${REPLACE}@" "${FILE}" \> "${FILE}2")
+      eval $EVAL
       # cp "${FILE}2" "${FILE}"
       # rm "${FILE}2"
     done
