@@ -150,7 +150,9 @@ function rr(){
   git pull
   3
   . engine_redeploy_scripts
+  3
   . engine_z_deploy
+  3
   . engine_z_restart
   cd $curdir
   export DONT_REDEPLOY=""
