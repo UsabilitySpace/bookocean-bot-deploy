@@ -213,6 +213,7 @@ function minus(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
+  echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
   if [ -z "$1" ] ; then
     cls
     echo "STOPPING BOTS..."
@@ -259,6 +260,7 @@ function minus_plus(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
+  echo '${bots_to_run[$1]}' ${bots_to_run[$1]}
   if [ -z "$1" ] ; then
     cls
     echo "RESTARTING BOTS..."
