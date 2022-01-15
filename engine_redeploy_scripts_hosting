@@ -214,7 +214,7 @@ bots_to_run(){
   curdir="$PWD"
   RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
   cd "$RUN_DIR"
-  BOTS_TO_RUN="$(ls *config.js)"
+  BOTS_TO_RUN="$(ls $RUN_DIR/*config.js)"
   echo $BOTS_TO_RUN
   cd "$curdir"
 }
