@@ -25,9 +25,9 @@ function sed_menus(){
 
     for FILE in ${DIR}/${SUBDIR}/*.js; do
       echo "sed'ing ${FILE}"
-      echo "${FILE}"
-      echo "${FILE}2"
-      rm "${FILE}2"
+      # echo "${FILE}"
+      # echo "${FILE}2"
+      rm "${FILE}2" > null
       EVAL=$(echo \sed "s@${SEARCH}@${REPLACE}@" "${FILE}" \> "${FILE}2")
       eval $EVAL
       # cp "${FILE}2" "${FILE}"
