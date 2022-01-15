@@ -7,7 +7,7 @@
 # prepare includes
 # ─────────────────────────────────
 
-if [ -z "$DONT_PRE" ] ; then
+if [ -z "$DONT_REDEPLOY" ] ; then
 
   export DONT_PRE="1"
 

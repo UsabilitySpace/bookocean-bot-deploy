@@ -30,7 +30,7 @@ git push -f
 
 # value added in all public files
 
-if [ -z "$DONT_PRE" ] ; then
+if [ -z "$DONT_REDEPLOY" ] ; then
 
   export DONT_PRE="1"
 
