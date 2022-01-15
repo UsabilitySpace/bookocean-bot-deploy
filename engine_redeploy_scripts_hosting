@@ -146,17 +146,37 @@ ALIAS m='4'
 ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
 
 function plus(){
-  curdir=$PWD
-  cls
-  export DONT_REDEPLOY="1"
-  export DONT_CLS="1"
-  export DONT_LL="1"
-  sed_menus
-  pm2 restart all
-  export DONT_REDEPLOY=""
-  export DONT_CLS=""
-  export DONT_LL=""
-  export DONT_LL=""
+  if [ -z "$1" ] ; then
+    curdir=$PWD
+    cls
+    export DONT_REDEPLOY="1"
+    export DONT_CLS="1"
+    export DONT_LL="1"
+    sed_menus
+    pm2 start all
+    export DONT_REDEPLOY=""
+    export DONT_CLS=""
+    export DONT_LL=""
+    export DONT_LL=""
+  else
+    curdir=$PWD
+    cls
+    export DONT_REDEPLOY="1"
+    export DONT_CLS="1"
+    export DONT_LL="1"
+    sed_menus
+    bots_to_run="$(ls /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/*config.js)"
+    if [[ " ${bots_to_run[@]} " =~ " ${$1} " ]]; then
+      BOT="$1"
+    else
+      BOT="${bots_to_run[$1]}"
+    fi
+    pm2 start $BOT
+    export DONT_REDEPLOY=""
+    export DONT_CLS=""
+    export DONT_LL=""
+    export DONT_LL=""
+  fi
 }
 ALIAS "_+"="plus"
 
