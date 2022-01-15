@@ -1,5 +1,5 @@
 
-if [ -z "$DONT_CLS" ] ; then
+if [ -z "$DONT_CLS" ] || [ -z "$1" ] ; then
 
   cls
 
