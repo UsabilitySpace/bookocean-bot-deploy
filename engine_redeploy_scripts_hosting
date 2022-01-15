@@ -94,7 +94,7 @@ bots_to_run(){
 
 ALIAS ll="ls -l --all"
 
-ALIAS l="pm2 list"
+ALIAS l="pm2 list --sort id"
 
 ALIAS n="mcedit"
 ALIAS n~="mcedit ~/.bashrc"
