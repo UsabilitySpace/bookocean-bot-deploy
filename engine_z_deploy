@@ -5,6 +5,14 @@
 # deploy
 # ─────────────────────────────────
 
+function sed_menu(){
+  DIR_MENU="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu"
+  SEARCH_STRING='require("../project/___all.*.js")'
+  REPLACE_STRING='require("../../bot/___all.*.js")'
+  sed -i "s@$SEARCH_STRING@$REPLACE_STRING@" filename
+}
+
+sed_menu
 node engine_z_deploy.js
 
 # ─────────────────────────────────
