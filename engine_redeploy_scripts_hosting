@@ -52,6 +52,44 @@ function sed_menus(){
 
 }
 
+function array_contains() {
+    name=$1[@]
+    # echo "name = " $name
+    array=("${!name}")
+    # echo "a = " "$a"
+    for e in "${array[@]}"; do
+      if [[ "$e" == "$2" ]] ; then
+        echo 1
+        return 1
+      fi
+    done
+    echo 0
+    return 0
+}
+
+bots_to_run(){
+  curdir="$PWD"
+  RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
+  cd "$RUN_DIR"
+  PREF="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/"
+  POST="_ECOSYSTEM.config.js"
+  PREF_LEN=${#PREF}
+  POST_LEN=${#POST}
+  BOTS_TO_RUN=($(ls $RUN_DIR/*config.js))
+  echo "$BOTS_TO_RUN"
+  for i in ${!BOTS_TO_RUN[@]} ; do
+    echo $i:
+    e="${BOTS_TO_RUN[i]}"
+    echo $e
+    e="${e:${PREF_LEN}}"
+    e="${e::-${POST_LEN}}"
+    e="$(echo "$e" | sed -r 's/^[0-9]+_//')"
+    BOTS_TO_RUN[i]="$e"
+    echo $e
+  done
+  cd "$curdir"
+}
+
 # ----------------------------------------------------------------------------
 # COMMON : BASH
 # ----------------------------------------------------------------------------
@@ -146,44 +184,6 @@ ALIAS d='3'
 ALIAS m='4'
 
 ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
-
-function array_contains() {
-    name=$1[@]
-    # echo "name = " $name
-    array=("${!name}")
-    # echo "a = " "$a"
-    for e in "${array[@]}"; do
-      if [[ "$e" == "$2" ]] ; then
-        echo 1
-        return 1
-      fi
-    done
-    echo 0
-    return 0
-}
-
-bots_to_run(){
-  curdir="$PWD"
-  RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run"
-  cd "$RUN_DIR"
-  PREF="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/"
-  POST="_ECOSYSTEM.config.js"
-  PREF_LEN=${#PREF}
-  POST_LEN=${#POST}
-  BOTS_TO_RUN=($(ls $RUN_DIR/*config.js))
-  echo "$BOTS_TO_RUN"
-  for i in ${!BOTS_TO_RUN[@]} ; do
-    echo $i:
-    e="${BOTS_TO_RUN[i]}"
-    echo $e
-    e="${e:${PREF_LEN}}"
-    e="${e::-${POST_LEN}}"
-    e="$(echo "$e" | sed -r 's/^[0-9]+_//')"
-    BOTS_TO_RUN[i]="$e"
-    echo $e
-  done
-  cd "$curdir"
-}
 
 function plus(){
   curdir=$PWD
