@@ -17,6 +17,21 @@ ALIAS PS1="$ps1"
 # FUNCTIONS
 # ----------------------------------------------------------------------------
 
+function array_contains() {
+    name=$1[@]
+    # echo "name = " $name
+    array=("${!name}")
+    # echo "a = " "$a"
+    for e in "${array[@]}"; do
+      if [[ "$e" == "$2" ]] ; then
+        echo 1
+        return 1
+      fi
+    done
+    echo 0
+    return 0
+}
+
 function all_subdirs_of_subdir(){
   DIR=$1
   for SUBDIR in ${DIR}/*/; do
@@ -50,21 +65,6 @@ function sed_menus(){
 
   done
 
-}
-
-function array_contains() {
-    name=$1[@]
-    # echo "name = " $name
-    array=("${!name}")
-    # echo "a = " "$a"
-    for e in "${array[@]}"; do
-      if [[ "$e" == "$2" ]] ; then
-        echo 1
-        return 1
-      fi
-    done
-    echo 0
-    return 0
 }
 
 bots_to_run(){
