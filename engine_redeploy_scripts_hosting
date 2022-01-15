@@ -141,6 +141,11 @@ ALIAS m='4'
 
 ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
 
+function r(){
+  sed_menus > /dev/null
+  engine_z_restart
+}
+
 function rr(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
@@ -188,8 +193,6 @@ ALIAS r33="curdir=$PWD ; 33 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 ALIAS r44="curdir=$PWD ; 44 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 ALIAS r55="curdir=$PWD ; 55 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 
-ALIAS r="sed_menus > /dev/null ; r00 ; r11 ; r22 ; r33 ; r44 ; r55"
-
 # rm reaction.r ; s ; rm reaction.r ; s ;rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ;
 
 # %
@@ -206,3 +209,5 @@ ALIAS r="sed_menus > /dev/null ; r00 ; r11 ; r22 ; r33 ; r44 ; r55"
 #   "
 # ALIAS c0s="c ; 00 ; 00- ; s"
 # ALIAS c5s="c ; 55 ; 55- ; s"
+
+}
