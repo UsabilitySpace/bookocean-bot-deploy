@@ -14,6 +14,45 @@ ALIAS ps1="$ps1"
 ALIAS PS1="$ps1"
 
 # ----------------------------------------------------------------------------
+# FUNCTIONS
+# ----------------------------------------------------------------------------
+
+function all_subsubdirs_of_subdir(){
+  DIR=$1
+  for SUBDIR in ${DIR}/*/; do
+      SUBDIR=${SUBDIR%*/}
+      echo ${SUBDIR##*/}
+  done
+}
+
+function sed_menus(){
+
+  SEARCH='require\(\"../project/___all.\*.js\"\)'
+  REPLACE='require\(\"../../bot/___all.\*.js\"\)'
+
+  DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu"
+  for SUBDIR in $(all_subsubdirs_of_subdir ${DIR}); do
+
+    echo "STARTING SEDDING FOR BOT MENU $SUBDIR:"
+
+    for FILE in ${DIR}/${SUBDIR}/*.js; do
+      echo "sed'ing ${FILE}"
+      # echo "${FILE}"
+      # echo "${FILE}2"
+      rm "${FILE}2" > /dev/null
+      EVAL=$(echo \sed "s@${SEARCH}@${REPLACE}@" "${FILE}" \> "${FILE}2")
+      eval $EVAL
+      cp "${FILE}2" "${FILE}"
+      rm "${FILE}2" > /dev/null
+    done
+
+    # echo "FINISHED SEDDING FOR BOT MENU $SUBDIR."
+
+  done
+
+}
+
+# ----------------------------------------------------------------------------
 # COMMON : BASH
 # ----------------------------------------------------------------------------
 
