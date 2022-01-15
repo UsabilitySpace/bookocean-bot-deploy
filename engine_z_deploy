@@ -23,7 +23,7 @@ function sed_menu(){
 
     echo "STARTING SEDDING FOR BOT MENU $SUBDIR:"
 
-    for FILE in $DIR/${SUBDIR}*.js; do
+    for FILE in $DIR/${SUBDIR}/*.js; do
       echo "sed'ing $FILE"
       cp "$FILE" "${FILE}2"
       sed "s@$SEARCH@$REPLACE@" "$FILE" > "${FILE}2"
