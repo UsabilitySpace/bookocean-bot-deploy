@@ -209,10 +209,10 @@ function plus(){
       cls
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
-      echo "SENDING START COMMAND TO BOT BY INDEX: $BOT"
+      echo "SENDING START COMMAND TO BOT BY INDEX: $BOT [$1]"
       pm2 start $BOT
       pm2 save
-      echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
+      echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT [$1]"
     else
       echo "SEEKING FOR A BOT TO START..."
       echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
@@ -252,10 +252,10 @@ function minus(){
       cls
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
-      echo "SENDING STOP COMMAND TO BOT BY INDEX: $BOT"
+      echo "SENDING STOP COMMAND TO BOT BY INDEX: $BOT [$1]"
       pm2 stop $BOT
       pm2 save
-      echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
+      echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT [$1]"
     else
       echo "SEEKING FOR A BOT TO STOP..."
       echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
@@ -300,10 +300,10 @@ function minus_plus(){
       # echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
-      echo "SENDING RESTART COMMAND TO BOT BY INDEX: $BOT"
+      echo "SENDING RESTART COMMAND TO BOT BY INDEX: $BOT [$1]"
       pm2 restart $BOT
       pm2 save
-      echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
+      echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT [$1]"
     else
       echo "SEEKING FOR A BOT TO RESTART..."
       echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
