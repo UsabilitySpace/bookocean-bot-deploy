@@ -142,8 +142,16 @@ ALIAS m='4'
 ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
 
 function r(){
+  curdir=$PWD
+  export DONT_REDEPLOY="1"
+  export DONT_CLS="1"
+  export DONT_LL="1"
   sed_menus > /dev/null
   . engine_z_restart
+  export DONT_REDEPLOY=""
+  export DONT_CLS=""
+  export DONT_LL=""
+  export DONT_LL=""
 }
 
 function rr(){
