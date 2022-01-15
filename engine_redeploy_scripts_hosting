@@ -191,7 +191,7 @@ function plus(){
   if [ -z "$1" ] ; then
     cls
     sed_menus
-        echo "STARTING ALL BOTS..."
+    echo "STARTING ALL BOTS..."
     pm2 start all
     pm2 save
     echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO ALL BOTS"
