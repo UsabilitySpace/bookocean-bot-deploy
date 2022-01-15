@@ -204,7 +204,7 @@ function plus(){
       echo "STARTING BOT BY NAME: $BOT"
       pm2 start $BOT
       pm2 save
-      echo "START COMMAND HAS BEEN SUCCESSFULLY SENT TO BOT $BOT"
+      echo "START COMMAND HAS BEEN SUCCESSFULLY SENT TO BOT: $BOT"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
       sed_menus
@@ -212,7 +212,7 @@ function plus(){
       echo "STARTING BOT BY INDEX: $BOT"
       pm2 start $BOT
       pm2 save
-      echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
+      echo "START COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
     else
       echo "SEEKING FOR A BOT TO START..."
       echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
@@ -247,7 +247,7 @@ function minus(){
       echo "STOPPING BOT BY NAME: $BOT"
       pm2 stop $BOT
       pm2 save
-      echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
+      echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
       sed_menus
@@ -255,7 +255,7 @@ function minus(){
       echo "STOPPING BOT BY INDEX: $BOT"
       pm2 stop $BOT
       pm2 save
-      echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
+      echo "STOP COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
     else
       echo "SEEKING FOR A BOT TO STOP..."
       echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
@@ -294,7 +294,7 @@ function minus_plus(){
       echo "RESTARTING BOT BY NAME: $BOT"
       pm2 restart $BOT
       pm2 save
-      echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
+      echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
       # echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
@@ -303,7 +303,7 @@ function minus_plus(){
       echo "RESTARTING BOT BY INDEX: $BOT"
       pm2 restart $BOT
       pm2 save
-      echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT $BOT"
+      echo "RESTART COMMAND HAS BEEN SUCCESSFULLY SEND TO BOT: $BOT"
     else
       echo "SEEKING FOR A BOT TO RESTART..."
       echo "THERE'S NO SUCH BOT IN THE CURRENT DEPLOY: $1"
