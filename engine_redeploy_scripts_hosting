@@ -191,7 +191,7 @@ function plus(){
   export DONT_CLS="1"
   export DONT_LL="1"
   if [ -z "$1" ] ; then
-    cls
+    # cls
     echo "STARTING BOTS..."
     sed_menus
     pm2 start all
@@ -200,7 +200,7 @@ function plus(){
   else
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
-      cls
+      # cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STARTING BOT BY NAME..."
       sed_menus
@@ -210,7 +210,7 @@ function plus(){
       pm2 save
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
-      cls
+      # cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STARTING BOT BY INDEX..."
       sed_menus
@@ -239,7 +239,7 @@ function minus(){
   export DONT_CLS="1"
   export DONT_LL="1"
   if [ -z "$1" ] ; then
-    cls
+    # cls
     echo "STOPPING BOTS..."
     sed_menus
     pm2 start all
@@ -247,7 +247,7 @@ function minus(){
   else
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
-      cls
+      # cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STOPPING BOT BY NAME..."
       sed_menus
@@ -257,7 +257,7 @@ function minus(){
       pm2 save
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STOPPED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
-      cls
+      # cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STOPPING BOT BY INDEX..."
       sed_menus
@@ -286,7 +286,7 @@ function minus_plus(){
   export DONT_CLS="1"
   export DONT_LL="1"
   if [ -z "$1" ] ; then
-    cls
+    # cls
     echo "RESTARTING BOTS..."
     sed_menus
     pm2 start all
@@ -294,7 +294,7 @@ function minus_plus(){
   else
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
-      cls
+      # cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "RESTARTING BOT BY NAME..."
       sed_menus
@@ -304,7 +304,7 @@ function minus_plus(){
       pm2 save
       echo "BOT $BOT HAS BEEN SUCCESSFULLY RESTARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
-      cls
+      # cls
       echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "$BOTS_TO_RUN"
       echo "RESTARTING BOT BY INDEX..."
@@ -331,7 +331,7 @@ ALIAS r="minus_plus"
 
 function rr(){
   curdir=$PWD
-  cls
+  # cls
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
