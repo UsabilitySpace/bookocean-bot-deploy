@@ -147,10 +147,20 @@ ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
 
 function array_contains() {
     name=$1[@]
-    echo $name
+    # echo $name
     array=("${!name}")
-    echo "$a"
+    # echo "$a"
+    for e in "${array[@]}"; do
+      if [[ "$e" == "$2" ]] ; then
+        echo 1
+        return 1
+      fi
+    done
+    echo 0
+    return 0
 }
+
+bots_to_run=""
 
 function plus(){
   curdir=$PWD
@@ -166,7 +176,7 @@ function plus(){
     RUN_DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run"
     bots_to_run="$(ls $RUN_DIR/*config.js)"
     echo $bots_to_run
-    if [[ "###${bots_to_run[@]}###" =~ "###55###" ]]; then
+    if [[ "$(array_contains bots_to_run $1)" == "1" ]]; then
     # if [[ "###/var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/0_bookocean-bot-developer-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/1_bookocean-bot-production-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/2_bookocean-bot-user-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/3_bookocean-bot-user-hosting-regru-0000-1802660270_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/4_client-bot-user-hosting-regru_ECOSYSTEM.config.js /var/www/www-root/data/nodejs/server/usability-space-bot-engine/deploy/engine_run/5_sinar-bot-telegramsites-hosting-regru_ECOSYSTEM.config.js###" =~ "###55###" ]]; then
       # sed_menus
       echo 111
