@@ -17,7 +17,7 @@ ALIAS PS1="$ps1"
 # FUNCTIONS
 # ----------------------------------------------------------------------------
 
-function all_subsubdirs_of_subdir(){
+function all_subdirs_of_subdir(){
   DIR=$1
   for SUBDIR in ${DIR}/*/; do
       SUBDIR=${SUBDIR%*/}
@@ -31,7 +31,7 @@ function sed_menus(){
   REPLACE='require\(\"../../bot/___all.\*.js\"\)'
 
   DIR="/var/www/www-root/data/nodejs/server/usability-space-bot-engine/menu"
-  for SUBDIR in $(all_subsubdirs_of_subdir ${DIR}); do
+  for SUBDIR in $(all_subdirs_of_subdir ${DIR}); do
 
     echo "STARTING SEDDING FOR BOT MENU $SUBDIR:"
 
