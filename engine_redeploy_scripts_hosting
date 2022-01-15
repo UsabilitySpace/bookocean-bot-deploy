@@ -187,7 +187,7 @@ function r(){
   export DONT_CLS="1"
   export DONT_LL="1"
   sed_menus > /dev/null
-  . engine_z_restart
+  pm2 restart all
   export DONT_REDEPLOY=""
   export DONT_CLS=""
   export DONT_LL=""
