@@ -85,16 +85,17 @@ ALIAS ar="cls ; pm2 delete all ; . engine_recreate ; _+"
 ## ALIAS rr="ar"
 
 function plus(){
-  if [ -z "$DONT_REDEPLOY" ] ; then
+  if [ -z "$1" ] ; then
     pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
+    $1
     pm2 start /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
   fi
 }
 ALIAS "_+"="plus"
 
 function minus(){
-  if [ -z "$DONT_REDEPLOY" ] ; then
+  if [ -z "$1" ] ; then
     pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
     pm2 stop /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
@@ -103,7 +104,7 @@ function minus(){
 ALIAS "_-"="minus"
 
 function minus_plus(){
-  if [ -z "$DONT_REDEPLOY" ] ; then
+  if [ -z "$1" ] ; then
     pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js
   else
     pm2 restart /var/www/www-root/data/nodejs/server/usability-space-bot-engine/config/config.pm2.ecosystem.js --only $1
@@ -187,7 +188,7 @@ ALIAS r33="curdir=$PWD ; 33 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 ALIAS r44="curdir=$PWD ; 44 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 ALIAS r55="curdir=$PWD ; 55 ; echo $PWD ; pm2 restart index.js ; cd $curdir"
 
-ALIAS r="r00 ; r11 ; r22 ; r33 ; r44 ; r55"
+ALIAS r="sed_menus > /dev/null ; r00 ; r11 ; r22 ; r33 ; r44 ; r55"
 
 # rm reaction.r ; s ; rm reaction.r ; s ;rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ; rm reaction.r ; s ;
 
