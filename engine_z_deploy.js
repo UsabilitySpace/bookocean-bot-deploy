@@ -78,7 +78,8 @@ for (let BOT_N in Object.keys(a)) {
         apps : [{ 
             script : "${bots_to_export[BOT_N].script}",
             name   : "${bots_to_export[BOT_N].name}",
-            args   : "${bots_to_export[BOT_N].args}"
+            args   : "${bots_to_export[BOT_N].args}",
+            group  : "BookOcean"
         }]
     }`;
     let BOT_N_PATH_1_ECOSYSTEM = `${CONFIG_BOT_RUN}/${BOT_N}_${BOT_N_NAME}_ECOSYSTEM.config.js`;
