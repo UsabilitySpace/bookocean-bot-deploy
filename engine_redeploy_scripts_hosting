@@ -201,7 +201,7 @@ function plus(){
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
-      echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STARTING BOT BY NAME..."
       sed_menus
       BOT="$1"
@@ -211,7 +211,7 @@ function plus(){
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
-      echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STARTING BOT BY INDEX..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
@@ -248,7 +248,7 @@ function minus(){
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
-      echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STOPPING BOT BY NAME..."
       sed_menus
       BOT="$1"
@@ -258,7 +258,7 @@ function minus(){
       echo "BOT $BOT HAS BEEN SUCCESSFULLY STOPPED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
-      echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "STOPPING BOT BY INDEX..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
@@ -295,7 +295,7 @@ function minus_plus(){
     BOTS_TO_RUN=($bots_to_run)
     if [[ "$(array_contains BOTS_TO_RUN $1)" == "1" ]]; then
       cls
-      echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "RESTARTING BOT BY NAME..."
       sed_menus
       BOT="$1"
@@ -305,7 +305,7 @@ function minus_plus(){
       echo "BOT $BOT HAS BEEN SUCCESSFULLY RESTARTED"
     elif [ -n "${BOTS_TO_RUN[$1]}" ]; then
       cls
-      echo '${BOTS_TO_RUN[$1]}' ${BOTS_TO_RUN[$1]}
+      echo '${BOTS_TO_RUN[@]}' ${BOTS_TO_RUN[@]}
       echo "RESTARTING BOT BY INDEX..."
       sed_menus
       BOT="${BOTS_TO_RUN[$1]}"
