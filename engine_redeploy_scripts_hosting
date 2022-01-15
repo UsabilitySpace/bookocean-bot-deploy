@@ -151,7 +151,6 @@ function rr(){
   3
   . engine_redeploy_scripts
   . engine_z_deploy
-  4
   . engine_z_restart
   cd $curdir
   export DONT_REDEPLOY=""
