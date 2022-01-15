@@ -7,9 +7,10 @@
 # prepare includes
 # ─────────────────────────────────
 
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 if [ -z "$DONT_REDEPLOY" ] ; then
 
-  SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
   source "$SCRIPT_DIR/engine_redeploy_scripts"
 
 fi
@@ -25,9 +26,9 @@ fi
 # ─────────────────────────────────
 
 # echo $SCRIPT_DIR
-bots_to_run="$(ls $SCRIPT_DIR/engine_run/*PM2.sh)"
+bots_to_run="$(ls /var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/*PM2.sh)"
 # echo $bots_to_run
-ls $SCRIPT_DIR/engine_run/*PM2.sh
+ls /var/www/www-root/data/nodejs/server/usability-space-bot-engine/run/*PM2.sh
 
 # for bot_n in "${bots_to_run[@]}"; do
 for bot_n in $bots_to_run; do

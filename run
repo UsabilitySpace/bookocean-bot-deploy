@@ -1,8 +1,8 @@
-. engine_run/0_bookocean-bot-developer-hosting-regru_PM2.sh
-. engine_run/1_bookocean-bot-production-hosting-regru_PM2.sh
-. engine_run/2_bookocean-bot-user-hosting-regru_PM2.sh
-. engine_run/3_bookocean-bot-user-hosting-regru-0000-1802660270_PM2.sh
-. engine_run/4_client-bot-user-hosting-regru_PM2.sh
-. engine_run/5_sinar-bot-telegramsites-hosting-regru_PM2.sh
-. engine_run/6_bookocean-bot-user-hosting-regru0_PM2.sh
-. engine_run/7_bookocean-bot-user-hosting-regru1_PM2.sh
+. ../run/0_bookocean-bot-developer-hosting-regru_PM2.sh
+. ../run/1_bookocean-bot-production-hosting-regru_PM2.sh
+. ../run/2_bookocean-bot-user-hosting-regru_PM2.sh
+. ../run/3_bookocean-bot-user-hosting-regru-0000-1802660270_PM2.sh
+. ../run/4_client-bot-user-hosting-regru_PM2.sh
+. ../run/5_sinar-bot-telegramsites-hosting-regru_PM2.sh
+. ../run/6_bookocean-bot-user-hosting-regru0_PM2.sh
+. ../run/7_bookocean-bot-user-hosting-regru1_PM2.sh
