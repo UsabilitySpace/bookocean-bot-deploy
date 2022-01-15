@@ -147,9 +147,9 @@ ALIAS u="3 ; git pull ; . engine_redeploy_scripts"
 
 function array_contains() {
     name=$1[@]
-    # echo $name
+    echo "name = " $name
     array=("${!name}")
-    # echo "$a"
+    echo "a = " "$a"
     for e in "${array[@]}"; do
       if [[ "$e" == "$2" ]] ; then
         echo 1
