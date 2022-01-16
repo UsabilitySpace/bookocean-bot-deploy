@@ -230,6 +230,7 @@ fi
       md deploy
       md menu
       md run
+      md restart
 
       # clone projects using ssh keys
       # Using multiple repositories on one server
