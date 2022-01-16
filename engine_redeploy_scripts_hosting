@@ -325,8 +325,8 @@ function rr(){
   export DONT_REDEPLOY="1"
   export DONT_CLS="1"
   export DONT_LL="1"
-  2
-  git pull
+  # 2
+  # git pull
   3
   . engine_redeploy_scripts
   3
