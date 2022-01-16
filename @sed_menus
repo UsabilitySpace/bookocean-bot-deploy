@@ -1,0 +1,10 @@
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPT_DIR/engine_redeploy_scripts_hosting
+
+# ----------------------------------------------------------------------------
+# DO ONLY ONE THING
+# ----------------------------------------------------------------------------
+
+sed_menus
+
