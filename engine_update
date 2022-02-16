@@ -44,10 +44,10 @@ fi
   # cloned projects already know how to pull themselves
   # pull projects
 
-    cd bot    : git pull : ..
-    cd config : git pull : ..
-    cd deploy : git pull : ..
-    cd menu   : git pull : ..
+    cd bot    ; git pull ; ..
+    cd config ; git pull ; ..
+    cd deploy ; git pull ; ..
+    cd menu   ; git pull ; ..
 
   # report user
 
